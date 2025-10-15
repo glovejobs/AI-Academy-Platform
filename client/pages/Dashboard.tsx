@@ -9,8 +9,8 @@ export default function Dashboard() {
     { id: "dashboard", label: "Dashboard", path: "/dashboard", icon: "home" },
     { id: "progress", label: "My Child/Progress", path: "/progress" },
     { id: "schedule", label: "Schedule", path: "/schedule" },
-    { id: "messages", label: "Messages", path: "#" },
-    { id: "safety", label: "Safety Center", path: "#" },
+    { id: "messages", label: "Messages", path: "/messages" },
+    { id: "safety", label: "Safety Center", path: "/safety-center" },
     { id: "settings", label: "Settings", path: "#" },
   ];
 
