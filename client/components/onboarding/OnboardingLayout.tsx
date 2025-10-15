@@ -69,7 +69,7 @@ export function OnboardingLayout({
             paddingBottom: "calc(24px + env(safe-area-inset-bottom, 0px))",
           }}
         >
-          <div className="mx-auto w-full max-w-[864px]">{footer}</div>
+          <div className={`mx-auto w-full ${contentWidthClass}`}>{footer}</div>
         </div>
       </footer>
     </div>
