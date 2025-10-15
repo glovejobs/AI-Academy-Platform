@@ -20,20 +20,24 @@ export function OnboardingLayout({
   children,
   footer,
   backgroundClassName,
+  headerMaxWidthClassName,
+  contentMaxWidthClassName,
 }: OnboardingLayoutProps) {
   const normalizedProgress = Math.min(Math.max(progress, 0), 100);
   const fillPercentage = Math.min(
     Math.max(progressFillWidth ?? normalizedProgress, 0),
     100
   );
+  const headerWidthClass = headerMaxWidthClassName ?? "max-w-[864px]";
+  const contentWidthClass = contentMaxWidthClassName ?? "max-w-[864px]";
 
   return (
     <div className={`min-h-screen flex flex-col ${backgroundClassName ?? "bg-[#FAFAFA]"}`}>
       <header className="sticky top-0 z-40 border-b border-black/[0.05] bg-[#FAFAFA]/95 backdrop-blur-md">
-        <div className="mx-auto w-full max-w-[864px] px-4 sm:px-6 py-4">
+        <div className={`mx-auto w-full ${headerWidthClass} px-4 sm:px-6 py-4`}>
           <img src={LOGO_SRC} alt="Logo" className="w-9 h-9" />
         </div>
-        <div className="mx-auto w-full max-w-[864px] px-4 sm:px-6 pb-4">
+        <div className={`mx-auto w-full ${headerWidthClass} px-4 sm:px-6 pb-4`}>
           <div className="flex items-center gap-3">
             <div className="relative h-2 flex-1 rounded-lg bg-[#EAECF0] overflow-hidden">
               <div
