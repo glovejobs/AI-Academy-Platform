@@ -1,16 +1,16 @@
 import { Home, Target, Zap, Calendar, Award, ArrowRight, Rocket, Palette, Plus } from "lucide-react";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
-  const [activeTab, setActiveTab] = useState("dashboard");
+  const navigate = useNavigate();
 
   const navItems = [
-    { id: "dashboard", label: "Dashboard", active: true },
-    { id: "child-progress", label: "My Child/Progress", active: false },
-    { id: "schedule", label: "Schedule", active: false },
-    { id: "messages", label: "Messages", active: false },
-    { id: "safety", label: "Safety Center", active: false },
-    { id: "settings", label: "Settings", active: false },
+    { id: "dashboard", label: "Dashboard", path: "/dashboard", active: true, icon: "home" },
+    { id: "progress", label: "My Child/Progress", path: "/progress", active: false },
+    { id: "schedule", label: "Schedule", path: "/schedule", active: false },
+    { id: "messages", label: "Messages", path: "#", active: false },
+    { id: "safety", label: "Safety Center", path: "#", active: false },
+    { id: "settings", label: "Settings", path: "#", active: false },
   ];
 
   return (
