@@ -57,11 +57,31 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        brand: {
+          green: "hsl(var(--brand-green))",
+          "green-dark": "hsl(var(--brand-green-dark))",
+          "green-light": "hsl(var(--brand-green-light))",
+        },
+        gray: {
+          bg: "hsl(var(--gray-bg))",
+          border: "hsl(var(--gray-border))",
+        },
+        text: {
+          primary: "hsl(var(--text-primary))",
+          secondary: "hsl(var(--text-secondary))",
+          muted: "hsl(var(--text-muted))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        full: "9999px",
+      },
+      fontFamily: {
+        sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        heading: ['Space Grotesk', '-apple-system', 'Roboto', 'Helvetica', 'sans-serif'],
+        body: ['Plus Jakarta Sans', '-apple-system', 'Roboto', 'Helvetica', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
