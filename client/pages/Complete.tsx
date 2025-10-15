@@ -7,8 +7,7 @@ export default function Complete() {
   const [showAlert, setShowAlert] = useState(true);
 
   const handleDashboard = () => {
-    // Navigate to dashboard (placeholder)
-    console.log("Navigate to dashboard");
+    navigate("/dashboard");
   };
 
   const handleBack = () => {
