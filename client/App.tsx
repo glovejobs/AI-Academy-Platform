@@ -14,6 +14,8 @@ import Pricing from "./pages/Pricing";
 import Payment from "./pages/Payment";
 import Complete from "./pages/Complete";
 import Dashboard from "./pages/Dashboard";
+import Progress from "./pages/Progress";
+import Schedule from "./pages/Schedule";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
