@@ -18,6 +18,7 @@ import Progress from "./pages/Progress";
 import Schedule from "./pages/Schedule";
 import Messages from "./pages/Messages";
 import SafetyCenter from "./pages/SafetyCenter";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/messages" element={<Messages />} />
           <Route path="/safety-center" element={<SafetyCenter />} />
+          <Route path="/settings" element={<Settings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
