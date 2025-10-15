@@ -6,6 +6,7 @@ interface OnboardingLayoutProps {
   progressFillWidth?: number;
   children: ReactNode;
   footer: ReactNode;
+  backgroundClassName?: string;
 }
 
 const LOGO_SRC = "https://api.builder.io/api/v1/image/assets/TEMP/7db5fae004e1db186d4348eeae009350c277e0e7?width=72";
