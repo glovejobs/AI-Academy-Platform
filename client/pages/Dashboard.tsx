@@ -96,7 +96,7 @@ export default function Dashboard() {
         </div>
 
         {/* Progress Alert */}
-        <div className="mb-8 p-6 rounded-[20px] border border-black/[0.05] bg-gradient-to-r from-[#163300] to-[#9FE870]">
+        <div className="mb-8 px-6 py-8 sm:px-8 sm:py-10 rounded-[28px] border border-black/[0.05] bg-gradient-to-r from-[#163300] to-[#9FE870]">
           <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/20 mb-6">
             <svg className="w-5 h-5 text-[#FAFAFA]" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12.0834 4.16666H10.4167C8.05972 4.16666 6.88121 4.16666 6.14898 4.89889C5.41675 5.63112 5.41675 6.80963 5.41675 9.16666V13.3333C5.41675 15.6903 5.41675 16.8688 6.14898 17.6011C6.88121 18.3333 8.05972 18.3333 10.4167 18.3333H11.536C12.2172 18.3333 12.5579 18.3333 12.8642 18.2065C13.1705 18.0796 13.4113 17.8387 13.8931 17.357L16.1071 15.143C16.5888 14.6612 16.8297 14.4204 16.9566 14.1141C17.0834 13.8078 17.0834 13.4672 17.0834 12.7859V9.16666C17.0834 6.80963 17.0834 5.63112 16.3512 4.89889C15.6189 4.16666 14.4404 4.16666 12.0834 4.16666Z" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
