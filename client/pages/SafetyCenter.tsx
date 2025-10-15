@@ -18,7 +18,7 @@ export default function SafetyCenter() {
     { id: "schedule", label: "Schedule", path: "/schedule" },
     { id: "messages", label: "Messages", path: "/messages" },
     { id: "safety", label: "Safety Center", path: "/safety-center" },
-    { id: "settings", label: "Settings", path: "#" },
+    { id: "settings", label: "Settings", path: "/settings" },
   ];
 
   const isActive = (itemPath: string | undefined) => {
