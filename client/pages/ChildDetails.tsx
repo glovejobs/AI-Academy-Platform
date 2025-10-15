@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AlertCircle, EyeOff, X } from "lucide-react";
+import { AlertCircle, X } from "lucide-react";
 
-export default function Index() {
+export default function ChildDetails() {
   const navigate = useNavigate();
   const [showAlert, setShowAlert] = useState(true);
 
   const handleNext = () => {
-    navigate("/child-details");
+    navigate("/emergency-contact");
+  };
+
+  const handleBack = () => {
+    navigate("/");
   };
 
   return (
@@ -21,12 +25,12 @@ export default function Index() {
         />
       </div>
 
-      {/* Progress Bar */}
+      {/* Progress Bar - 20% */}
       <div className="w-full max-w-[864px] flex items-center gap-3 mb-8">
         <div className="flex-1 h-2 bg-[#EAECF0] rounded-lg relative overflow-hidden">
-          <div className="absolute left-0 top-0 h-full w-[2.8%] bg-[#0A4D39] rounded-lg" />
+          <div className="absolute left-0 top-0 h-full w-[20%] bg-[#0A4D39] rounded-lg" />
         </div>
-        <span className="text-sm text-black font-normal tracking-tight">0%</span>
+        <span className="text-sm text-black font-normal tracking-tight">20%</span>
       </div>
 
       {/* Main Form Card */}
@@ -34,10 +38,10 @@ export default function Index() {
         {/* Header */}
         <div className="mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-black leading-[1.2] mb-2 font-heading">
-            Create Your Parent Account
+            Add Your Child's Details
           </h1>
           <p className="text-base sm:text-lg text-[#404040] leading-[1.5] tracking-[-0.36px] font-body">
-            Start by setting up your account so we can keep you informed every step of the way.
+            Tell us about your child so we can personalize their bootcamp experience
           </p>
         </div>
 
@@ -46,15 +50,15 @@ export default function Index() {
 
         {/* Form Fields */}
         <div className="space-y-6 mb-12">
-          {/* Full Name */}
+          {/* Child's Full Name */}
           <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-semibold text-[#21231D] leading-[1.5] tracking-[-0.28px]">
-              Full Name
+            <label className="text-sm font-semibold text-black leading-[1.5]">
+              Child's Full Name
             </label>
             <div className="flex items-center gap-2 px-4 py-4 h-[53px] rounded-full border border-black/[0.08] bg-[#FAFAFA]">
               <input
                 type="text"
-                placeholder="e.g, john doe"
+                placeholder="e.g., Alex Johnson"
                 className="flex-1 bg-transparent outline-none text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] leading-6 tracking-[-0.16px]"
               />
             </div>
@@ -62,49 +66,43 @@ export default function Index() {
 
           {/* Email */}
           <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-semibold text-[#21231D] leading-[1.5] tracking-[-0.28px]">
+            <label className="text-sm font-semibold text-black leading-[1.5]">
               Email
             </label>
             <div className="flex items-center gap-2 px-4 py-4 h-[53px] rounded-full border border-black/[0.08] bg-[#FAFAFA]">
               <input
                 type="email"
-                placeholder="name@exmaple.com"
+                placeholder="example@email.com"
                 className="flex-1 bg-transparent outline-none text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] leading-6 tracking-[-0.16px]"
               />
             </div>
           </div>
 
-          {/* Phone Number */}
+          {/* Age */}
           <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-semibold text-black leading-[1.5] tracking-[-0.28px]">
-              Phone Number
+            <label className="text-sm font-semibold text-black leading-[1.5]">
+              Age
             </label>
             <div className="flex items-center gap-2 px-4 py-4 h-[53px] rounded-full border border-black/[0.08] bg-[#FAFAFA]">
-              <img 
-                src="https://api.builder.io/api/v1/image/assets/TEMP/6c270b03fdf4c426d84d7f861b008439be573134?width=42" 
-                alt="Flag" 
-                className="w-[21px] h-[21px] rounded-full"
-              />
               <input
-                type="tel"
-                placeholder="(555) 555-5555"
+                type="text"
+                placeholder="e.g., 14 years old"
                 className="flex-1 bg-transparent outline-none text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] leading-6 tracking-[-0.16px]"
               />
             </div>
           </div>
 
-          {/* Password */}
+          {/* Grade */}
           <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-semibold text-black leading-[1.5] tracking-[-0.28px]">
-              Password
+            <label className="text-sm font-semibold text-black leading-[1.5]">
+              Grade
             </label>
             <div className="flex items-center gap-2 px-4 py-4 h-[53px] rounded-full border border-black/[0.08] bg-[#FAFAFA]">
               <input
-                type="password"
-                placeholder="Enter your password"
+                type="text"
+                placeholder="e.g., 10th grade"
                 className="flex-1 bg-transparent outline-none text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] leading-6 tracking-[-0.16px]"
               />
-              <EyeOff className="w-4 h-4 text-black flex-shrink-0" />
             </div>
           </div>
         </div>
@@ -132,8 +130,14 @@ export default function Index() {
         )}
       </div>
 
-      {/* Footer with Next Button */}
-      <div className="w-full max-w-[864px] bg-white rounded-[32px] border border-black/[0.08] p-8 flex justify-end">
+      {/* Footer with Navigation */}
+      <div className="w-full max-w-[864px] bg-white rounded-[32px] border border-black/[0.08] p-8 flex justify-between items-center">
+        <button
+          onClick={handleBack}
+          className="text-lg font-bold text-[#163300] leading-[1.2] font-heading underline hover:opacity-80 transition-opacity"
+        >
+          Go Back
+        </button>
         <button
           onClick={handleNext}
           className="px-8 py-4 h-14 bg-[#EDEFEB] rounded-full border border-black/[0.08] hover:bg-[#E0E5DC] transition-colors"
