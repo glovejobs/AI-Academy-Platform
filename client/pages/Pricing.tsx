@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Check } from "lucide-react";
+import { OnboardingLayout } from "../components/onboarding/OnboardingLayout";
 
 export default function Pricing() {
   const navigate = useNavigate();
@@ -16,26 +18,23 @@ export default function Pricing() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center py-4 sm:py-8 px-4">
-      {/* Logo */}
-      <div className="w-full max-w-[1280px] flex items-center gap-2.5 mb-8">
-        <img 
-          src="https://api.builder.io/api/v1/image/assets/TEMP/7db5fae004e1db186d4348eeae009350c277e0e7?width=72" 
-          alt="Logo" 
-          className="w-9 h-9"
-        />
-      </div>
-
-      {/* Progress Bar - 80% */}
-      <div className="w-full max-w-[864px] flex items-center gap-3 mb-8">
-        <div className="flex-1 h-2 bg-[#EAECF0] rounded-lg relative overflow-hidden">
-          <div className="absolute left-0 top-0 h-full w-[80%] bg-[#0A4D39] rounded-lg" />
+    <OnboardingLayout
+      progress={80}
+      backgroundClassName="bg-white"
+      headerMaxWidthClassName="max-w-[1280px]"
+      contentMaxWidthClassName="max-w-[1280px]"
+      footer={
+        <div className="bg-white rounded-[32px] border border-black/[0.08] p-6 sm:p-8 flex justify-start">
+          <button
+            onClick={handleBack}
+            className="text-lg font-bold text-[#163300] leading-[1.2] font-heading underline hover:opacity-80 transition-opacity"
+          >
+            Go Back
+          </button>
         </div>
-        <span className="text-sm text-black font-normal tracking-tight">80%</span>
-      </div>
-
-      {/* Header Section */}
-      <div className="w-full max-w-[960px] text-center mb-16">
+      }
+    >
+      <div className="w-full max-w-[960px] mx-auto text-center mb-16">
         <p className="text-base text-[#163300] leading-[1.5] tracking-[-0.32px] mb-3 font-medium">
           Pricing
         </p>
@@ -48,7 +47,7 @@ export default function Pricing() {
       </div>
 
       {/* Pricing Cards */}
-      <div className="w-full max-w-[1280px] grid md:grid-cols-2 gap-8 mb-12 px-8">
+      <div className="w-full grid md:grid-cols-2 gap-8 mb-12 px-0 md:px-4">
         {/* 2 Months Plan */}
         <div className="flex flex-col rounded-[32px] border border-black/[0.08] bg-[#FAFAFA] overflow-hidden">
           <div className="p-8 border-b border-[#EAECF0]">
@@ -153,14 +152,7 @@ export default function Pricing() {
         </div>
       </div>
 
-      {/* Back Button */}
-      <button
-        onClick={handleBack}
-        className="text-lg font-bold text-[#163300] leading-[1.2] font-heading underline hover:opacity-80 transition-opacity mb-8"
-      >
-        Go Back
-      </button>
-    </div>
+    </OnboardingLayout>
   );
 }
 
