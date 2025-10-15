@@ -1,17 +1,26 @@
 import { Home, Target, Zap, Calendar, Award, ArrowRight, Rocket, Palette, Plus } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Home, Target, Zap, Calendar, Award, ArrowRight, Rocket, Palette, Plus } from "lucide-react";
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
-    { id: "dashboard", label: "Dashboard", path: "/dashboard", active: true, icon: "home" },
-    { id: "progress", label: "My Child/Progress", path: "/progress", active: false },
-    { id: "schedule", label: "Schedule", path: "/schedule", active: false },
-    { id: "messages", label: "Messages", path: "#", active: false },
-    { id: "safety", label: "Safety Center", path: "#", active: false },
-    { id: "settings", label: "Settings", path: "#", active: false },
+    { id: "dashboard", label: "Dashboard", path: "/dashboard", icon: "home" },
+    { id: "progress", label: "My Child/Progress", path: "/progress" },
+    { id: "schedule", label: "Schedule", path: "/schedule" },
+    { id: "messages", label: "Messages", path: "#" },
+    { id: "safety", label: "Safety Center", path: "#" },
+    { id: "settings", label: "Settings", path: "#" },
   ];
+
+  const isActive = (itemPath: string | undefined) => {
+    if (!itemPath) return false;
+    if (itemPath === "#") return false;
+    return location.pathname === itemPath;
+  };
+
 
   return (
     <div className="min-h-screen bg-[#1E3006] p-3 sm:p-6">
