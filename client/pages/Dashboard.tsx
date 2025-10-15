@@ -30,20 +30,20 @@ export default function Dashboard() {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => setActiveTab(item.id)}
+                onClick={() => item.path !== "#" && navigate(item.path)}
                 className={`px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base transition-all ${
-                  activeTab === item.id
+                  item.active
                     ? "bg-[#B1FA63] text-[#163300] font-bold"
                     : "text-[#FAFAFA] opacity-60 hover:opacity-100"
                 }`}
               >
-                {activeTab === item.id && item.id === "dashboard" && (
+                {item.active && item.icon === "home" && (
                   <span className="inline-flex items-center gap-2">
                     <Home className="w-5 h-5" />
                     {item.label}
                   </span>
                 )}
-                {(activeTab !== item.id || item.id !== "dashboard") && item.label}
+                {(!item.active || item.icon !== "home") && item.label}
               </button>
             ))}
           </div>
