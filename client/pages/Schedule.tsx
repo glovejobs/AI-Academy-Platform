@@ -11,9 +11,9 @@ export default function Schedule() {
     { label: "Dashboard", path: "/dashboard", active: false },
     { label: "My Child/Progress", path: "/progress", active: false },
     { label: "Schedule", path: "/schedule", active: true, icon: "calendar" },
-    { label: "Messages", path: "#", active: false },
-    { label: "Safety Center", path: "#", active: false },
-    { label: "Settings", path: "#", active: false },
+    { label: "Messages", path: "/messages", active: false },
+    { label: "Safety Center", path: "/safety-center", active: false },
+    { label: "Settings", path: "/settings", active: false },
   ];
 
   const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
