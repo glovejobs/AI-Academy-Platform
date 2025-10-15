@@ -18,7 +18,7 @@ export default function Index() {
       progressLabel="0%"
       progressFillWidth={2.8}
       footer={
-        <div className="bg-white rounded-[32px] border border-black/[0.08] p-6 sm:p-8 flex justify-end">
+        <div className="w-full bg-white rounded-[32px] border border-black/[0.08] p-6 sm:p-8 flex justify-end">
           <button
             onClick={handleNext}
             className="px-8 py-4 h-14 bg-[#EDEFEB] rounded-full border border-black/[0.08] hover:bg-[#E0E5DC] transition-colors"
