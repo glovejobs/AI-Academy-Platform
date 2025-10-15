@@ -36,25 +36,29 @@ export default function Dashboard() {
 
           {/* Navigation Tabs */}
           <div className="flex flex-wrap items-center gap-2">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => item.path !== "#" && navigate(item.path)}
-                className={`px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base transition-all ${
-                  item.active
-                    ? "bg-[#B1FA63] text-[#163300] font-bold"
-                    : "text-[#FAFAFA] opacity-60 hover:opacity-100"
-                }`}
-              >
-                {item.active && item.icon === "home" && (
-                  <span className="inline-flex items-center gap-2">
-                    <Home className="w-5 h-5" />
-                    {item.label}
-                  </span>
-                )}
-                {(!item.active || item.icon !== "home") && item.label}
-              </button>
-            ))}
+            {navItems.map((item) => {
+              const active = isActive(item.path);
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => item.path !== "#" && navigate(item.path)}
+                  className={`px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base transition-all ${
+                    active
+                      ? "bg-[#B1FA63] text-[#163300] font-bold"
+                      : "text-[#FAFAFA] opacity-60 hover:opacity-100"
+                  }`}
+                >
+                  {active && item.icon === "home" ? (
+                    <span className="inline-flex items-center gap-2">
+                      <Home className="w-5 h-5" />
+                      {item.label}
+                    </span>
+                  ) : (
+                    item.label
+                  )}
+                </button>
+              );
+            })}
           </div>
 
           {/* User Profile */}
