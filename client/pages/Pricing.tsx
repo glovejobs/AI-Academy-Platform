@@ -24,7 +24,7 @@ export default function Pricing() {
       headerMaxWidthClassName="max-w-[1280px]"
       contentMaxWidthClassName="max-w-[1280px]"
       footer={
-        <div className="bg-white rounded-[32px] border border-black/[0.08] p-6 sm:p-8 flex justify-start">
+        <div className="w-full bg-white rounded-[32px] border border-black/[0.08] p-6 sm:p-8 flex justify-start">
           <button
             onClick={handleBack}
             className="text-lg font-bold text-[#163300] leading-[1.2] font-heading underline hover:opacity-80 transition-opacity"
