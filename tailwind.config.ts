@@ -82,6 +82,12 @@ export default {
         sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
         heading: ['Space Grotesk', '-apple-system', 'Roboto', 'Helvetica', 'sans-serif'],
         body: ['Plus Jakarta Sans', '-apple-system', 'Roboto', 'Helvetica', 'sans-serif'],
+        satoshi: ['Satoshi', '-apple-system', 'Roboto', 'Helvetica', 'sans-serif'],
+        'random-grotesque-bold': ['Space Grotesk', '-apple-system', 'Roboto', 'Helvetica', 'sans-serif'],
+        'random-grotesque-semibold': ['Space Grotesk', '-apple-system', 'Roboto', 'Helvetica', 'sans-serif'],
+        'plus-jakarta': ['Plus Jakarta Sans', '-apple-system', 'Roboto', 'Helvetica', 'sans-serif'],
+        'dm-sans': ['DM Sans', '-apple-system', 'Roboto', 'Helvetica', 'sans-serif'],
+        montserrat: ['Montserrat', '-apple-system', 'Roboto', 'Helvetica', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
