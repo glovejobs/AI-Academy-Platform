@@ -56,7 +56,7 @@ export function OnboardingLayout({
         className="flex-1 px-4 sm:px-6"
         style={{ paddingBottom: "calc(220px + env(safe-area-inset-bottom, 0px))" }}
       >
-        <div className="mx-auto w-full max-w-[864px] py-8 sm:py-12 lg:py-16">
+        <div className={`mx-auto w-full ${contentWidthClass} py-8 sm:py-12 lg:py-16`}>
           {children}
         </div>
       </main>
