@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AlertCircle, EyeOff, X } from "lucide-react";
+import { OnboardingLayout } from "../components/onboarding/OnboardingLayout";
 
 export default function Index() {
   const navigate = useNavigate();
@@ -11,26 +13,24 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] flex flex-col items-center py-4 sm:py-8 px-4">
-      {/* Logo */}
-      <div className="w-full max-w-[864px] flex items-center gap-2.5 mb-8">
-        <img 
-          src="https://api.builder.io/api/v1/image/assets/TEMP/7db5fae004e1db186d4348eeae009350c277e0e7?width=72" 
-          alt="Logo" 
-          className="w-9 h-9"
-        />
-      </div>
-
-      {/* Progress Bar */}
-      <div className="w-full max-w-[864px] flex items-center gap-3 mb-8">
-        <div className="flex-1 h-2 bg-[#EAECF0] rounded-lg relative overflow-hidden">
-          <div className="absolute left-0 top-0 h-full w-[2.8%] bg-[#0A4D39] rounded-lg" />
+    <OnboardingLayout
+      progress={0}
+      progressLabel="0%"
+      progressFillWidth={2.8}
+      footer={
+        <div className="bg-white rounded-[32px] border border-black/[0.08] p-6 sm:p-8 flex justify-end">
+          <button
+            onClick={handleNext}
+            className="px-8 py-4 h-14 bg-[#EDEFEB] rounded-full border border-black/[0.08] hover:bg-[#E0E5DC] transition-colors"
+          >
+            <span className="text-lg font-bold text-[#163300] leading-[1.2] font-heading">
+              Next
+            </span>
+          </button>
         </div>
-        <span className="text-sm text-black font-normal tracking-tight">0%</span>
-      </div>
-
-      {/* Main Form Card */}
-      <div className="w-full max-w-[864px] bg-white rounded-[32px] border border-black/[0.08] p-8 sm:p-12 lg:p-16 mb-8">
+      }
+    >
+      <div className="w-full bg-white rounded-[32px] border border-black/[0.08] p-8 sm:p-12 lg:p-16 mb-12">
         {/* Header */}
         <div className="mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-black leading-[1.2] mb-2 font-heading">
@@ -131,18 +131,6 @@ export default function Index() {
           </div>
         )}
       </div>
-
-      {/* Footer with Next Button */}
-      <div className="w-full max-w-[864px] bg-white rounded-[32px] border border-black/[0.08] p-8 flex justify-end">
-        <button
-          onClick={handleNext}
-          className="px-8 py-4 h-14 bg-[#EDEFEB] rounded-full border border-black/[0.08] hover:bg-[#E0E5DC] transition-colors"
-        >
-          <span className="text-lg font-bold text-[#163300] leading-[1.2] font-heading">
-            Next
-          </span>
-        </button>
-      </div>
-    </div>
+    </OnboardingLayout>
   );
 }
