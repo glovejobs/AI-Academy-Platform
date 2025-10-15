@@ -54,7 +54,7 @@ export function OnboardingLayout({
 
       <main
         className="flex-1 px-4 sm:px-6"
-        style={{ paddingBottom: "calc(220px + env(safe-area-inset-bottom, 0px))" }}
+        style={{ paddingBottom: "calc(160px + env(safe-area-inset-bottom, 0px))" }}
       >
         <div className={`mx-auto w-full ${contentWidthClass} py-8 sm:py-12 lg:py-16`}>
           {children}
@@ -65,8 +65,8 @@ export function OnboardingLayout({
         <div
           className="px-4 sm:px-6"
           style={{
-            paddingTop: "24px",
-            paddingBottom: "calc(24px + env(safe-area-inset-bottom, 0px))",
+            paddingTop: "16px",
+            paddingBottom: "calc(16px + env(safe-area-inset-bottom, 0px))",
           }}
         >
           <div className={`mx-auto w-full ${contentWidthClass}`}>{footer}</div>
