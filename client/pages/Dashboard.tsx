@@ -1,6 +1,5 @@
 import { Target, Zap, Calendar, Award, ArrowRight, Rocket, Palette, Plus } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Target, Zap, Calendar, Award, ArrowRight, Rocket, Palette, Plus } from "lucide-react";
 
 export default function Dashboard() {
   const navigate = useNavigate();
