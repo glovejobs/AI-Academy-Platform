@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Check } from "lucide-react";
 import { OnboardingLayout } from "../components/onboarding/OnboardingLayout";
