@@ -16,6 +16,8 @@ import Complete from "./pages/Complete";
 import Dashboard from "./pages/Dashboard";
 import Progress from "./pages/Progress";
 import Schedule from "./pages/Schedule";
+import Messages from "./pages/Messages";
+import SafetyCenter from "./pages/SafetyCenter";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +40,8 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/progress" element={<Progress />} />
           <Route path="/schedule" element={<Schedule />} />
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/safety-center" element={<SafetyCenter />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
