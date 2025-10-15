@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Target, Zap, Award, ChevronLeft, ChevronRight, Search, Info, X } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Schedule() {
   const navigate = useNavigate();
