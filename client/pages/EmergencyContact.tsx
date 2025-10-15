@@ -19,7 +19,7 @@ export default function EmergencyContact() {
     <OnboardingLayout
       progress={40}
       footer={
-        <div className="w-full bg-white rounded-[32px] border border-black/[0.08] p-6 sm:p-8 flex justify-between items-center">
+        <div className="w-full bg-white rounded-[32px] border border-black/[0.08] p-4 sm:p-6 flex justify-between items-center">
           <button
             onClick={handleBack}
             className="text-lg font-bold text-[#163300] leading-[1.2] font-heading underline hover:opacity-80 transition-opacity"
