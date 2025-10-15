@@ -26,7 +26,7 @@ export function OnboardingLayout({
   );
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] flex flex-col">
+    <div className={`min-h-screen flex flex-col ${backgroundClassName ?? "bg-[#FAFAFA]"}`}>
       <header className="sticky top-0 z-40 border-b border-black/[0.05] bg-[#FAFAFA]/95 backdrop-blur-md">
         <div className="mx-auto w-full max-w-[864px] px-4 sm:px-6 py-4">
           <img src={LOGO_SRC} alt="Logo" className="w-9 h-9" />
