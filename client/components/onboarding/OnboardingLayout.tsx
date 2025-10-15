@@ -17,6 +17,7 @@ export function OnboardingLayout({
   progressFillWidth,
   children,
   footer,
+  backgroundClassName,
 }: OnboardingLayoutProps) {
   const normalizedProgress = Math.min(Math.max(progress, 0), 100);
   const fillPercentage = Math.min(
