@@ -522,7 +522,10 @@ export default function StudentProjects() {
                   Your creative workspace
                 </p>
               </div>
-              <button className="flex items-center gap-2 px-6 sm:px-8 h-14 rounded-full bg-[#EE7A13] hover:bg-[#EE7A13]/90 transition-colors">
+              <button
+                onClick={() => setIsCreateModalOpen(true)}
+                className="flex items-center gap-2 px-6 sm:px-8 h-14 rounded-full bg-[#EE7A13] hover:bg-[#EE7A13]/90 transition-colors"
+              >
                 <Plus className="w-5 h-5 text-[#FAFAFA]" strokeWidth={2} />
                 <span className="text-base font-bold text-[#FAFAFA] leading-6">Create New Project</span>
               </button>
