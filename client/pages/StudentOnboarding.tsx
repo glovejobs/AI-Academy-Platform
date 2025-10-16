@@ -155,7 +155,7 @@ export default function StudentOnboarding() {
                   <div className="flex flex-col gap-4 flex-1">
                     <div className="flex flex-col gap-1">
                       <div className="flex items-center gap-2">
-                        <span className="text-sm font-bold text-[#0E121B]" style={{ fontFamily: 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                        <span className="text-xs font-bold text-[#0E121B]" style={{ fontFamily: 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
                           Nova Ai
                         </span>
                       </div>
@@ -168,7 +168,7 @@ export default function StudentOnboarding() {
                           </div>
                         </div>
                       ) : (
-                        <p className="text-lg leading-7 text-[#0E121B]" style={{ fontFamily: 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                        <p className="text-sm leading-6 text-[#0E121B]" style={{ fontFamily: 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
                           {message.content.split("**").map((part, i) =>
                             i % 2 === 1 ? (
                               <span key={i} className="font-bold">
@@ -187,7 +187,7 @@ export default function StudentOnboarding() {
                 <div className="flex justify-end items-start gap-3">
                   <div className="flex flex-col items-end gap-1 max-w-[360px]">
                     <div className="flex px-3 py-2 items-center gap-2 rounded-lg rounded-tr-none bg-[#EDEFEB]">
-                      <span className="text-lg leading-7 text-[#1E3006]" style={{ fontFamily: 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                      <span className="text-sm leading-6 text-[#1E3006]" style={{ fontFamily: 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
                         {message.content}
                       </span>
                     </div>
@@ -209,13 +209,13 @@ export default function StudentOnboarding() {
         <div className="flex flex-col gap-4">
           <div className="flex flex-col w-full">
             {showInfoBanner && (
-              <div className="flex items-center gap-1.5 px-3 py-3.5 rounded-t-3xl border border-[#E1E4EA] bg-[#EDEFEB]">
-                <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div className="flex items-center gap-1.5 px-3 py-2.5 rounded-t-3xl border border-[#E1E4EA] bg-[#EDEFEB]">
+                <svg width="14" height="14" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M8.00016 15.1663C11.6821 15.1663 14.6668 12.1816 14.6668 8.49967C14.6668 4.81778 11.6821 1.83301 8.00016 1.83301C4.31826 1.83301 1.3335 4.81778 1.3335 8.49967C1.3335 12.1816 4.31826 15.1663 8.00016 15.1663Z" stroke="#1E3006"/>
                   <path d="M7.99463 10.5H8.00213" stroke="#1E3006" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M8 8.49967V5.83301" stroke="#1E3006" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <span className="flex-1 text-xs leading-4 text-[#1E3006]" style={{ fontFamily: 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                <span className="flex-1 text-xs leading-3 text-[#1E3006]" style={{ fontFamily: 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
                   The more details you share, the better I can help!
                 </span>
                 <button onClick={() => setShowInfoBanner(false)} className="p-0">
@@ -233,7 +233,7 @@ export default function StudentOnboarding() {
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={(e) => e.key === "Enter" && handleSend()}
                   placeholder="Type your message"
-                  className="flex-1 bg-transparent outline-none text-base leading-6 text-[#404040] placeholder:text-[#8C8C8C]"
+                  className="flex-1 bg-transparent outline-none text-sm leading-5 text-[#404040] placeholder:text-[#8C8C8C]"
                   style={{ fontFamily: 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}
                 />
               </div>
@@ -273,7 +273,7 @@ export default function StudentOnboarding() {
             </div>
           </div>
 
-          <p className="text-base leading-6 text-[#404040] text-center" style={{ fontFamily: 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
+          <p className="text-xs sm:text-sm leading-5 text-[#404040] text-center" style={{ fontFamily: 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
             Nova can help with creative projects, answer questions, and provide feedback 💡
           </p>
         </div>
