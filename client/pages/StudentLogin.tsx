@@ -10,6 +10,7 @@ export default function StudentLogin() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle login logic here
+    navigate("/student-welcome");
   };
 
   const handleSignUp = () => {
