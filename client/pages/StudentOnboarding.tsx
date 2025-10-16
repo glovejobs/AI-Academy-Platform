@@ -206,7 +206,7 @@ export default function StudentOnboarding() {
         </div>
 
         {/* Input Area */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3">
           <div className="flex flex-col w-full">
             {showInfoBanner && (
               <div className="flex items-center gap-1.5 px-3 py-2.5 rounded-t-3xl border border-[#E1E4EA] bg-[#EDEFEB]">
