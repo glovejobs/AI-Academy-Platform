@@ -184,9 +184,9 @@ export default function StudentOnboarding() {
                   </div>
                 </div>
               ) : (
-                <div className="flex justify-end items-start gap-3">
-                  <div className="flex flex-col items-end gap-1 max-w-[360px]">
-                    <div className="flex px-3 py-2 items-center gap-2 rounded-lg rounded-tr-none bg-[#EDEFEB]">
+                <div className="flex justify-end items-start gap-2">
+                  <div className="flex flex-col items-end gap-1 max-w-[300px]">
+                    <div className="flex px-2 py-1.5 items-center gap-2 rounded-lg rounded-tr-none bg-[#EDEFEB]">
                       <span className="text-sm leading-6 text-[#1E3006]" style={{ fontFamily: 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
                         {message.content}
                       </span>
