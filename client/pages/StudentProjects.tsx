@@ -453,7 +453,7 @@ function ProjectDetailsModal({ isOpen, onClose, project }: { isOpen: boolean; on
         </div>
 
         {/* Footer */}
-        <div className="flex w-full p-6 justify-end items-center gap-2.5 rounded-[32px] bg-white border-t border-black/[0.05] -mx-8 -mb-8 px-8">
+        <div className="flex w-full p-12 justify-end items-center gap-2.5 rounded-[32px] bg-[#F7F7F7] -mx-8 -mb-8">
           <button className="flex h-14 px-8 items-center gap-2 rounded-full bg-[#EE7A13] hover:bg-[#EE7A13]/90 transition-colors">
             <span className="text-base font-bold text-[#FAFAFA] leading-6">Send</span>
           </button>
