@@ -34,7 +34,7 @@ export default function StudentOnboarding() {
     { number: 4, status: currentStep > 4 ? "completed" : currentStep === 4 ? "active" : "pending" },
     { number: 5, status: currentStep > 5 ? "completed" : currentStep === 5 ? "active" : "pending" },
     { number: 6, status: currentStep > 6 ? "completed" : currentStep === 6 ? "active" : "pending" },
-    { number: 7, status: currentStep === 7 ? "active" : "pending" },
+    { number: 7, status: currentStep > 7 ? "completed" : currentStep === 7 ? "active" : "pending" },
   ];
 
   const handleSend = () => {
