@@ -140,12 +140,12 @@ export default function StudentOnboarding() {
           ))}
         </div>
         {/* Messages */}
-        <div className="flex flex-col gap-4 mb-6">
+        <div className="flex flex-col gap-3 mb-4">
           {messages.map((message) => (
             <div key={message.id}>
               {message.type === "ai" ? (
-                <div className="flex items-start gap-3">
-                  <div className="flex w-10 h-10 justify-center items-center flex-shrink-0">
+                <div className="flex items-start gap-2">
+                  <div className="flex w-8 h-8 justify-center items-center flex-shrink-0">
                     <img
                       src="https://api.builder.io/api/v1/image/assets/TEMP/5ccfd5ab5a328bdad16c4b4f5a5e4df51a8d7755?width=79"
                       alt="Nova AI"
