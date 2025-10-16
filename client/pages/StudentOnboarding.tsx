@@ -152,7 +152,7 @@ export default function StudentOnboarding() {
                       className="w-full h-full"
                     />
                   </div>
-                  <div className="flex flex-col gap-4 flex-1">
+                  <div className="flex flex-col gap-2 flex-1">
                     <div className="flex flex-col gap-1">
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-bold text-[#0E121B]" style={{ fontFamily: 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
