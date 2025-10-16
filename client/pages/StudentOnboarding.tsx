@@ -74,7 +74,7 @@ export default function StudentOnboarding() {
           return updated;
         });
         const nextStep = currentStep + 1;
-        setCurrentStep(Math.min(nextStep, 7));
+        setCurrentStep(nextStep);
 
         // Navigate to next page after completing all questions
         if (nextStep > 7) {
