@@ -1,5 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { Plus, Search, SlidersHorizontal, ChevronDown, Lightbulb, Paperclip, MessageSquare, Calendar, Star, MoreHorizontal, Edit, CheckCircle } from "lucide-react";
+import { Plus, Search, SlidersHorizontal, ChevronDown, Lightbulb, Paperclip, MessageSquare, Calendar, Star, MoreHorizontal, Edit, CheckCircle, X } from "lucide-react";
+import { useState } from "react";
 
 interface Project {
   id: string;
