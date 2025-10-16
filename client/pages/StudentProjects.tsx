@@ -429,19 +429,14 @@ function ProjectDetailsModal({ isOpen, onClose, project }: { isOpen: boolean; on
           </div>
 
           {/* Comments */}
-          <div className="flex flex-col items-end gap-4">
-            <div className="flex flex-col gap-1.5 self-stretch">
-              <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
-                Comments
-              </label>
-              <textarea
-                placeholder="Type your comment here"
-                className="h-[100px] p-4 rounded-2xl border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] resize-none focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20"
-              />
-            </div>
-            <button className="h-14 px-6 rounded-full bg-[#EE7A13] hover:bg-[#EE7A13]/90 transition-colors">
-              <span className="text-base font-bold text-[#FAFAFA] leading-6">Send</span>
-            </button>
+          <div className="flex flex-col gap-1.5">
+            <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+              Comments
+            </label>
+            <textarea
+              placeholder="Type your comment here"
+              className="h-[100px] p-4 rounded-2xl border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] resize-none focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20"
+            />
           </div>
 
           {/* Content/Link */}
