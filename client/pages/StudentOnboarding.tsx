@@ -101,7 +101,7 @@ export default function StudentOnboarding() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1E3006] flex flex-col items-center p-3 sm:p-6 gap-6">
+    <div className="min-h-screen bg-[#1E3006] flex flex-col items-center p-px gap-6">
       {/* Chat Container */}
       <div className="flex flex-col flex-1 w-full max-w-[1376px] h-screen max-h-[calc(100vh-2rem)] rounded-3xl bg-white shadow-sm overflow-hidden">
         {/* Stepper - Now inside white container */}
