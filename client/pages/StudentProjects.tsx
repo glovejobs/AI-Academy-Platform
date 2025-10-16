@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { Plus, Search, SlidersHorizontal, ChevronDown, Lightbulb, Paperclip, MessageSquare, Calendar, Star, MoreHorizontal, Edit, CheckCircle, X } from "lucide-react";
+import { Plus, Search, SlidersHorizontal, ChevronDown, Lightbulb, Paperclip, MessageSquare, Calendar, Star, MoreHorizontal, Edit, CheckCircle, X, UserPlus } from "lucide-react";
 import { useState } from "react";
 
 interface Project {
@@ -195,9 +195,12 @@ const projectsData: Project[] = [
   }
 ];
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, onClick }: { project: Project; onClick: () => void }) {
   return (
-    <div className="bg-white rounded-[20px] border border-black/[0.05] p-8 flex flex-col gap-6">
+    <div 
+      onClick={onClick}
+      className="bg-white rounded-[20px] border border-black/[0.05] p-8 flex flex-col gap-6 cursor-pointer hover:shadow-lg transition-shadow"
+    >
       <div className="flex flex-col gap-3">
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2">
@@ -209,7 +212,12 @@ function ProjectCard({ project }: { project: Project }) {
               <h3 className={`text-[26px] font-bold leading-8 ${project.status === 'completed' ? 'line-through text-[#0E121B]' : 'text-[#0E121B]'}`} style={{ fontFamily: 'Random Grotesque Standard Bold, -apple-system, Roboto, Helvetica, sans-serif' }}>
                 {project.title}
               </h3>
-              <button className="p-0 -rotate-90">
+              <button 
+                className="p-0 -rotate-90"
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+              >
                 <MoreHorizontal className="w-6 h-6 text-[#0E121B]" strokeWidth={2.5} />
               </button>
             </div>
@@ -246,6 +254,206 @@ function ProjectCard({ project }: { project: Project }) {
                 className="w-7 h-7 rounded-full border-2 border-white"
               />
             ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProjectDetailsModal({ isOpen, onClose, project }: { isOpen: boolean; onClose: () => void; project: Project | null }) {
+  if (!isOpen || !project) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black/10 flex items-start justify-end z-50" onClick={onClose}>
+      <div
+        className="bg-[#FAFAFA] rounded-[32px] p-8 m-4 w-full max-w-[700px] h-[calc(100vh-32px)] flex flex-col gap-8 overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex flex-col gap-5">
+          <div className="flex justify-between items-start">
+            <div className="flex items-start gap-4 flex-1">
+              <div className="flex flex-col gap-1 flex-1">
+                <p className="text-base text-[#6A8042] leading-6">Overline text</p>
+                <h2 className="text-[30px] font-bold text-black leading-[34px]" style={{ fontFamily: 'Random Grotesque Standard Bold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                  Project Title
+                </h2>
+              </div>
+              <div className="flex items-center gap-2">
+                <button className="p-0">
+                  <MoreHorizontal className="w-8 h-8 text-[#1E1E1E]" strokeWidth={2.5} />
+                </button>
+                <button onClick={onClose} className="p-0">
+                  <X className="w-8 h-8 text-[#1E1E1E]" strokeWidth={1.5} />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="h-px bg-black/[0.05]" />
+          
+          {/* Avatars */}
+          <div className="flex items-start gap-2">
+            <button className="p-0">
+              <UserPlus className="w-7 h-7 text-[#6A8042]" strokeWidth={1.75} />
+            </button>
+            <div className="flex items-start -space-x-3.5">
+              {project.avatars.map((avatar, index) => (
+                <img
+                  key={index}
+                  src={avatar}
+                  alt=""
+                  className="w-7 h-7 rounded-full border-2 border-white"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Form */}
+        <div className="flex flex-col gap-4 p-6 rounded-[20px] border border-black/[0.05] bg-white">
+          {/* Bucket, Progress, Priority */}
+          <div className="flex gap-4">
+            <div className="flex flex-col gap-1.5 flex-1">
+              <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                Bucket
+              </label>
+              <div className="relative">
+                <select className="w-full h-[53px] px-4 pr-10 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] appearance-none focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20">
+                  <option>Select</option>
+                </select>
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1.5 flex-1">
+              <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                Progress
+              </label>
+              <div className="relative">
+                <select className="w-full h-[53px] px-4 pr-10 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] appearance-none focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20">
+                  <option>Select</option>
+                </select>
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1.5 flex-1">
+              <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                Priority
+              </label>
+              <div className="relative">
+                <select className="w-full h-[53px] px-4 pr-10 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] appearance-none focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20">
+                  <option>Select</option>
+                </select>
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" />
+              </div>
+            </div>
+          </div>
+
+          {/* Start Date, Due Date, Repeat */}
+          <div className="flex gap-4">
+            <div className="flex flex-col gap-1.5 flex-1">
+              <label className="text-xs font-medium text-black leading-[18px]" style={{ fontFamily: 'Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                Start date
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Select"
+                  className="w-full h-[53px] px-4 pr-10 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20"
+                />
+                <Calendar className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" strokeWidth={1} />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1.5 flex-1">
+              <label className="text-xs font-medium text-black leading-[18px]" style={{ fontFamily: 'Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                Due date
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Select"
+                  className="w-full h-[53px] px-4 pr-10 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20"
+                />
+                <Calendar className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" strokeWidth={1} />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1.5 flex-1">
+              <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                Repeat
+              </label>
+              <div className="relative">
+                <select className="w-full h-[53px] px-4 pr-10 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] appearance-none focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20">
+                  <option>Select</option>
+                </select>
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" />
+              </div>
+            </div>
+          </div>
+
+          {/* Notes */}
+          <div className="flex flex-col gap-1.5">
+            <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+              Notes
+            </label>
+            <textarea
+              placeholder="What's your project about?"
+              className="h-[100px] p-4 rounded-2xl border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] resize-none focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20"
+            />
+          </div>
+
+          {/* Checklist */}
+          <div className="flex flex-col gap-1.5">
+            <label className="text-xs font-medium text-black leading-[18px]" style={{ fontFamily: 'Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif' }}>
+              Checklist
+            </label>
+            <div className="flex items-start gap-2">
+              <div className="flex items-center justify-center pt-0.5">
+                <div className="w-4 h-4 rounded-lg border border-[#D0D5DD] bg-white" />
+              </div>
+              <span className="text-sm text-[#8C8C8C] leading-5">Add an item</span>
+            </div>
+          </div>
+
+          {/* Attachments */}
+          <div className="flex flex-col gap-1.5">
+            <label className="text-xs font-medium text-black leading-[18px]" style={{ fontFamily: 'Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif' }}>
+              Attachments
+            </label>
+            <div className="h-[53px] px-4 flex items-center rounded-lg border border-black/[0.05] bg-[#FAFAFA]">
+              <span className="text-base text-[#B3B3B3] leading-6">Add attachment</span>
+            </div>
+          </div>
+
+          {/* Comments */}
+          <div className="flex flex-col items-end gap-4">
+            <div className="flex flex-col gap-1.5 self-stretch">
+              <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                Comments
+              </label>
+              <textarea
+                placeholder="Type your comment here"
+                className="h-[100px] p-4 rounded-2xl border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] resize-none focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20"
+              />
+            </div>
+            <button className="h-14 px-6 rounded-full bg-[#EE7A13] hover:bg-[#EE7A13]/90 transition-colors">
+              <span className="text-base font-bold text-[#FAFAFA] leading-6">Send</span>
+            </button>
+          </div>
+
+          {/* Content/Link */}
+          <div className="flex flex-col gap-1.5">
+            <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+              Content/Link
+            </label>
+            <input
+              type="text"
+              placeholder="Add a link or notes"
+              className="h-[53px] px-4 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20"
+            />
           </div>
         </div>
       </div>
@@ -433,6 +641,7 @@ export default function StudentProjects() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const navItems = [
     { id: "dashboard", label: "Dashboard", path: "/dashboard" },
@@ -453,6 +662,10 @@ export default function StudentProjects() {
   const notStartedProjects = projectsData.filter(p => p.status === "not-started");
   const inProgressProjects = projectsData.filter(p => p.status === "in-progress");
   const completedProjects = projectsData.filter(p => p.status === "completed");
+
+  const handleProjectClick = (project: Project) => {
+    setSelectedProject(project);
+  };
 
   return (
     <div className="min-h-screen bg-[#1E3006] p-3 sm:p-6">
@@ -569,7 +782,7 @@ export default function StudentProjects() {
             </div>
             <div className="flex flex-col items-start gap-4 self-stretch">
               {notStartedProjects.map(project => (
-                <ProjectCard key={project.id} project={project} />
+                <ProjectCard key={project.id} project={project} onClick={() => handleProjectClick(project)} />
               ))}
             </div>
           </div>
@@ -594,7 +807,7 @@ export default function StudentProjects() {
             </div>
             <div className="flex flex-col items-start gap-4 self-stretch">
               {inProgressProjects.map(project => (
-                <ProjectCard key={project.id} project={project} />
+                <ProjectCard key={project.id} project={project} onClick={() => handleProjectClick(project)} />
               ))}
             </div>
           </div>
@@ -612,7 +825,7 @@ export default function StudentProjects() {
             </div>
             <div className="flex flex-col items-start gap-4 self-stretch">
               {completedProjects.map(project => (
-                <ProjectCard key={project.id} project={project} />
+                <ProjectCard key={project.id} project={project} onClick={() => handleProjectClick(project)} />
               ))}
             </div>
           </div>
@@ -623,6 +836,13 @@ export default function StudentProjects() {
       <CreateProjectModal
         isOpen={isCreateModalOpen}
         onClose={() => setIsCreateModalOpen(false)}
+      />
+
+      {/* Project Details Modal */}
+      <ProjectDetailsModal
+        isOpen={selectedProject !== null}
+        onClose={() => setSelectedProject(null)}
+        project={selectedProject}
       />
     </div>
   );
