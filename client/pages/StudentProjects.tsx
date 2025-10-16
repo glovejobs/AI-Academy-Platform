@@ -646,7 +646,7 @@ export default function StudentProjects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const navItems = [
-    { id: "dashboard", label: "Dashboard", path: "/dashboard" },
+    { id: "dashboard", label: "Dashboard", path: "/student-dashboard" },
     { id: "bootcamp", label: "My Bootcamp", path: "/student-bootcamp" },
     { id: "projects", label: "Projects", path: "/student-projects", icon: <Lightbulb className="w-5 h-5" strokeWidth={1.25} /> },
     { id: "mentor", label: "Ai Mentor", path: "#" },
