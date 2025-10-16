@@ -192,7 +192,7 @@ export default function StudentOnboarding() {
                       </span>
                     </div>
                   </div>
-                  <div className="flex w-10 h-10 justify-center items-center flex-shrink-0">
+                  <div className="flex w-8 h-8 justify-center items-center flex-shrink-0">
                     <img
                       src="https://api.builder.io/api/v1/image/assets/TEMP/fe1eccc8b53d8aa317a3a4cd190f829ca8899be8?width=80"
                       alt="User"
