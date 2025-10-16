@@ -253,9 +253,186 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
+function CreateProjectModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black/10 flex items-start justify-end z-50" onClick={onClose}>
+      <div
+        className="bg-[#FAFAFA] rounded-[32px] p-8 m-4 w-full max-w-[700px] h-[calc(100vh-32px)] flex flex-col justify-between overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-5">
+            <div className="flex justify-between items-start">
+              <div className="flex items-start gap-4 flex-1">
+                <div className="flex flex-col gap-1 flex-1">
+                  <h2 className="text-[30px] font-bold text-black leading-[34px]" style={{ fontFamily: 'Random Grotesque Standard Bold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                    Create New Project
+                  </h2>
+                  <p className="text-base text-[#404040] leading-6">Your creative workspace</p>
+                </div>
+                <button onClick={onClose} className="p-0">
+                  <X className="w-8 h-8 text-[#1E1E1E]" strokeWidth={1.5} />
+                </button>
+              </div>
+            </div>
+            <div className="h-px bg-black/[0.05]" />
+          </div>
+
+          {/* Form */}
+          <div className="flex flex-col gap-4 p-6 rounded-[20px] border border-black/[0.05] bg-white">
+            {/* Project Name */}
+            <div className="flex flex-col gap-1.5">
+              <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                Project Name*
+              </label>
+              <input
+                type="text"
+                placeholder="Give your project a creative name"
+                className="h-[53px] px-4 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20"
+              />
+            </div>
+
+            {/* Bucket, Progress, Priority */}
+            <div className="flex gap-4">
+              <div className="flex flex-col gap-1.5 flex-1">
+                <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                  Bucket
+                </label>
+                <div className="relative">
+                  <select className="w-full h-[53px] px-4 pr-10 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] appearance-none focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20">
+                    <option>Select</option>
+                  </select>
+                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1.5 flex-1">
+                <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                  Progress
+                </label>
+                <div className="relative">
+                  <select className="w-full h-[53px] px-4 pr-10 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] appearance-none focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20">
+                    <option>Select</option>
+                  </select>
+                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1.5 flex-1">
+                <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                  Priority
+                </label>
+                <div className="relative">
+                  <select className="w-full h-[53px] px-4 pr-10 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] appearance-none focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20">
+                    <option>Select</option>
+                  </select>
+                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" />
+                </div>
+              </div>
+            </div>
+
+            {/* Start Date, Due Date, Repeat */}
+            <div className="flex gap-4">
+              <div className="flex flex-col gap-1.5 flex-1">
+                <label className="text-xs font-medium text-black leading-[18px]" style={{ fontFamily: 'Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                  Start date
+                </label>
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="Select"
+                    className="w-full h-[53px] px-4 pr-10 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20"
+                  />
+                  <Calendar className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" strokeWidth={1} />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1.5 flex-1">
+                <label className="text-xs font-medium text-black leading-[18px]" style={{ fontFamily: 'Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                  Due date
+                </label>
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="Select"
+                    className="w-full h-[53px] px-4 pr-10 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20"
+                  />
+                  <Calendar className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" strokeWidth={1} />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1.5 flex-1">
+                <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                  Repeat
+                </label>
+                <div className="relative">
+                  <select className="w-full h-[53px] px-4 pr-10 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] appearance-none focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20">
+                    <option>Select</option>
+                  </select>
+                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" />
+                </div>
+              </div>
+            </div>
+
+            {/* Description */}
+            <div className="flex flex-col gap-1.5">
+              <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                Description
+              </label>
+              <textarea
+                placeholder="What's your project about?"
+                className="h-[100px] p-4 rounded-2xl border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] resize-none focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20"
+              />
+            </div>
+
+            {/* Status */}
+            <div className="flex flex-col gap-1.5">
+              <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                Status
+              </label>
+              <div className="relative">
+                <select className="w-full h-[53px] px-4 pr-10 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] appearance-none focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20">
+                  <option>Select</option>
+                </select>
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" />
+              </div>
+            </div>
+
+            {/* Content/Link */}
+            <div className="flex flex-col gap-1.5">
+              <label className="text-sm font-semibold text-black leading-[21px]" style={{ fontFamily: 'Random Grotesque Standard Semibold, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                Content/Link
+              </label>
+              <input
+                type="text"
+                placeholder="Add a link or notes"
+                className="h-[53px] px-4 rounded-full border border-black/[0.05] bg-[#FAFAFA] text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#EE7A13]/20"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Buttons */}
+        <div className="flex flex-col gap-4 p-6 rounded-[20px] border border-black/[0.05] bg-white">
+          <button className="h-14 px-8 rounded-full bg-[#EE7A13] hover:bg-[#EE7A13]/90 transition-colors">
+            <span className="text-base font-bold text-[#FAFAFA] leading-6">Create New Project</span>
+          </button>
+          <button onClick={onClose} className="h-14 px-8 rounded-full border border-black/[0.05] bg-[#FAFAFA] hover:bg-[#F5F5F5] transition-colors">
+            <span className="text-lg font-bold text-[#404040] leading-7 text-center">Cancel</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function StudentProjects() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
 
   const navItems = [
     { id: "dashboard", label: "Dashboard", path: "/dashboard" },
