@@ -73,7 +73,16 @@ export default function StudentOnboarding() {
           };
           return updated;
         });
-        setCurrentStep((prev) => Math.min(prev + 1, 7));
+        const nextStep = currentStep + 1;
+        setCurrentStep(Math.min(nextStep, 7));
+
+        // Navigate to next page after completing all questions
+        if (nextStep > 7) {
+          setTimeout(() => {
+            // TODO: Navigate to resume preview or dashboard
+            // navigate("/student-dashboard");
+          }, 2000);
+        }
       }, 1500);
     }, 500);
   };
