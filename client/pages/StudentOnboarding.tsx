@@ -80,12 +80,13 @@ export default function StudentOnboarding() {
 
   const getNextQuestion = () => {
     const questions = [
-      "Cool name, Mimi Alex! How old are you?",
-      "Great! What's your favorite subject?",
-      "Awesome! What are your hobbies?",
-      "Interesting! What's your dream job?",
-      "Amazing! Tell me about your strengths.",
-      "Perfect! We're all set to create something amazing!",
+      "**How old are you?**",
+      "Awesome! **What grade are you in?**",
+      "Nice! 🎯 **What school activities have you been part of? Think clubs, sports, events, student government...**",
+      "**What are you good at? What do you love doing?** Skills can be anything from coding to cooking!",
+      "**Tell me about a cool project or responsibility you've had!** It could be a school project, helping at home, or something you built.",
+      "**This will be the short 'About Me' section at the top of your resume. Tell us About Yourself in 2-3 sentences!**",
+      "Perfect! 🎉 We're all set to create something amazing!",
     ];
     return questions[currentStep - 1] || "Let's continue!";
   };
