@@ -240,13 +240,13 @@ export default function StudentOnboarding() {
 
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2.5">
-                  <button className="flex items-center justify-center w-16 h-6 px-0.75 rounded-xl bg-[#E1E4EA]">
+                  <button className="flex items-center justify-center w-12 h-5 px-0.5 rounded-lg bg-[#E1E4EA]">
                     <span className="text-xs text-[#525866]" style={{ fontFamily: 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>Speed</span>
                   </button>
-                  <div className="w-px h-5 bg-[#E1E4EA]" />
-                  <button className="p-0"><Zap className="w-5 h-5 text-[#404040]" /></button>
-                  <button className="p-0"><Paperclip className="w-5 h-5 text-[#404040]" /></button>
-                  <button className="p-0"><Search className="w-5 h-5 text-[#404040]" /></button>
+                  <div className="w-px h-4 bg-[#E1E4EA]" />
+                  <button className="p-0"><Zap className="w-4 h-4 text-[#404040]" /></button>
+                  <button className="p-0"><Paperclip className="w-4 h-4 text-[#404040]" /></button>
+                  <button className="p-0"><Search className="w-4 h-4 text-[#404040]" /></button>
                 </div>
 
                 <div className="flex items-center gap-2.5">
