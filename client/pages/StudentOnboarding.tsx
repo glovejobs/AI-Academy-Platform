@@ -265,7 +265,7 @@ export default function StudentOnboarding() {
                         </defs>
                       </svg>
                     ) : (
-                      <Send className="w-5 h-5 text-[#D9D9D9]" />
+                      <Send className="w-4 h-4 text-[#D9D9D9]" />
                     )}
                   </button>
                 </div>
