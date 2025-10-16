@@ -103,9 +103,9 @@ export default function StudentOnboarding() {
   return (
     <div className="min-h-screen bg-[#1E3006] flex flex-col items-center p-3 sm:p-6 gap-6">
       {/* Chat Container */}
-      <div className="flex flex-col flex-1 w-full max-w-[1376px] p-4 sm:p-8 rounded-3xl bg-white shadow-sm">
+      <div className="flex flex-col flex-1 w-full max-w-[1376px] h-screen max-h-[calc(100vh-2rem)] rounded-3xl bg-white shadow-sm overflow-hidden">
         {/* Stepper - Now inside white container */}
-        <div className="flex items-start gap-2 justify-center mb-4 sm:mb-6">
+        <div className="flex items-start gap-2 justify-center px-4 sm:px-8 pt-4 sm:pt-6 pb-0 flex-shrink-0">
           {steps.map((step, index) => (
             <div key={step.number} className="flex items-center gap-2">
               <div
@@ -139,8 +139,8 @@ export default function StudentOnboarding() {
             </div>
           ))}
         </div>
-        {/* Messages */}
-        <div className="flex flex-col gap-3 mb-4">
+        {/* Scrollable Messages Container */}
+        <div className="flex-1 overflow-y-auto px-4 sm:px-8 py-4 flex flex-col gap-3">
           {messages.map((message) => (
             <div key={message.id}>
               {message.type === "ai" ? (
@@ -205,8 +205,8 @@ export default function StudentOnboarding() {
           ))}
         </div>
 
-        {/* Input Area */}
-        <div className="flex flex-col gap-3">
+        {/* Fixed Input Area at Bottom */}
+        <div className="flex flex-col gap-3 px-4 sm:px-8 py-4 bg-white flex-shrink-0 border-t border-[#E1E4EA]">
           <div className="flex flex-col w-full">
             {showInfoBanner && (
               <div className="flex items-center gap-1.5 px-3 py-2.5 rounded-t-3xl border border-[#E1E4EA] bg-[#EDEFEB]">
