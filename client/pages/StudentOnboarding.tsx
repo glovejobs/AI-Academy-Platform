@@ -102,44 +102,43 @@ export default function StudentOnboarding() {
 
   return (
     <div className="min-h-screen bg-[#1E3006] flex flex-col items-center p-3 sm:p-6 gap-6">
-      {/* Stepper */}
-      <div className="flex items-start gap-2">
-        {steps.map((step, index) => (
-          <div key={step.number} className="flex items-center gap-2">
-            <div
-              className={`flex p-1 items-center gap-2 rounded-full ${
-                step.status === "active"
-                  ? "bg-[#9FE870]/20"
-                  : "bg-black/5"
-              }`}
-            >
+      {/* Chat Container */}
+      <div className="flex flex-col flex-1 w-full max-w-[1376px] p-8 sm:p-16 rounded-3xl bg-white shadow-sm">
+        {/* Stepper - Now inside white container */}
+        <div className="flex items-start gap-2 justify-center mb-6 sm:mb-8">
+          {steps.map((step, index) => (
+            <div key={step.number} className="flex items-center gap-2">
               <div
-                className={`flex w-5 h-5 flex-col justify-center items-center rounded-full ${
-                  step.status === "completed" || step.status === "active"
-                    ? "bg-[#B1FA63]"
+                className={`flex p-1 items-center gap-2 rounded-full ${
+                  step.status === "active"
+                    ? "bg-[#9FE870]/20"
                     : "bg-black/5"
                 }`}
               >
-                {step.status === "completed" ? (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.75 12.75L10 15.25L16.25 8.75" stroke="#1E3006" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                ) : (
-                  <span className={`text-xs font-bold ${step.status === "active" ? "text-[#1E3006]" : "text-black/50"}`} style={{ fontFamily: step.status === "active" ? 'Montserrat, -apple-system, Roboto, Helvetica, sans-serif' : 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
-                    {step.number}
-                  </span>
-                )}
+                <div
+                  className={`flex w-5 h-5 flex-col justify-center items-center rounded-full ${
+                    step.status === "completed" || step.status === "active"
+                      ? "bg-[#B1FA63]"
+                      : "bg-black/5"
+                  }`}
+                >
+                  {step.status === "completed" ? (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.75 12.75L10 15.25L16.25 8.75" stroke="#1E3006" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  ) : (
+                    <span className={`text-xs font-bold ${step.status === "active" ? "text-[#1E3006]" : "text-black/50"}`} style={{ fontFamily: step.status === "active" ? 'Montserrat, -apple-system, Roboto, Helvetica, sans-serif' : 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                      {step.number}
+                    </span>
+                  )}
+                </div>
               </div>
+              {index < steps.length - 1 && (
+                <div className={`w-6 h-0.5 ${step.status === "completed" ? "bg-[#B1FA63]" : step.status === "active" ? "bg-[#CBD5E1]" : "bg-black/5"}`} />
+              )}
             </div>
-            {index < steps.length - 1 && (
-              <div className={`w-6 h-0.5 ${step.status === "completed" ? "bg-[#B1FA63]" : step.status === "active" ? "bg-[#CBD5E1]" : "bg-black/5"}`} />
-            )}
-          </div>
-        ))}
-      </div>
-
-      {/* Chat Container */}
-      <div className="flex flex-col flex-1 w-full max-w-[1376px] p-8 sm:p-16 rounded-3xl bg-white shadow-sm">
+          ))}
+        </div>
         {/* Messages */}
         <div className="flex flex-col gap-4 mb-6">
           {messages.map((message) => (
