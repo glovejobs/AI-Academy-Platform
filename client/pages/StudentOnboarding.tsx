@@ -127,7 +127,7 @@ export default function StudentOnboarding() {
                       <path d="M7.75 12.75L10 15.25L16.25 8.75" stroke="#1E3006" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   ) : (
-                    <span className={`text-xs font-bold ${step.status === "active" ? "text-[#1E3006]" : "text-black/50"}`} style={{ fontFamily: step.status === "active" ? 'Montserrat, -apple-system, Roboto, Helvetica, sans-serif' : 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
+                    <span className={`text-xs ${step.status === "active" ? "text-[#1E3006] font-semibold" : "text-black/50 font-bold"}`} style={{ fontFamily: step.status === "active" ? 'Montserrat, -apple-system, Roboto, Helvetica, sans-serif' : 'Satoshi, -apple-system, Roboto, Helvetica, sans-serif' }}>
                       {step.number}
                     </span>
                   )}
