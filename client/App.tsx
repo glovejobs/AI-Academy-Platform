@@ -20,6 +20,8 @@ import Messages from "./pages/Messages";
 import SafetyCenter from "./pages/SafetyCenter";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
+import StudentSignup from "./pages/StudentSignup";
+import StudentLogin from "./pages/StudentLogin";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +46,8 @@ const App = () => (
           <Route path="/messages" element={<Messages />} />
           <Route path="/safety-center" element={<SafetyCenter />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/student-signup" element={<StudentSignup />} />
+          <Route path="/student-login" element={<StudentLogin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
