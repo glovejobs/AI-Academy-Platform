@@ -103,9 +103,9 @@ export default function StudentOnboarding() {
   return (
     <div className="min-h-screen bg-[#1E3006] flex flex-col items-center p-3 sm:p-6 gap-6">
       {/* Chat Container */}
-      <div className="flex flex-col flex-1 w-full max-w-[1376px] p-8 sm:p-16 rounded-3xl bg-white shadow-sm">
+      <div className="flex flex-col flex-1 w-full max-w-[1376px] p-4 sm:p-8 rounded-3xl bg-white shadow-sm">
         {/* Stepper - Now inside white container */}
-        <div className="flex items-start gap-2 justify-center mb-6 sm:mb-8">
+        <div className="flex items-start gap-2 justify-center mb-4 sm:mb-6">
           {steps.map((step, index) => (
             <div key={step.number} className="flex items-center gap-2">
               <div
