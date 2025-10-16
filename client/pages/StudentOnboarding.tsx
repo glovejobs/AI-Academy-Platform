@@ -249,10 +249,10 @@ export default function StudentOnboarding() {
                   <button className="p-0"><Search className="w-4 h-4 text-[#404040]" /></button>
                 </div>
 
-                <div className="flex items-center gap-2.5">
-                  <button className="p-0"><Image className="w-5 h-5 text-[#404040]" /></button>
-                  <button className="p-0"><Mic className="w-5 h-5 text-[#404040]" /></button>
-                  <div className="w-px h-5 bg-[#E1E4EA]" />
+                <div className="flex items-center gap-2">
+                  <button className="p-0"><Image className="w-4 h-4 text-[#404040]" /></button>
+                  <button className="p-0"><Mic className="w-4 h-4 text-[#404040]" /></button>
+                  <div className="w-px h-4 bg-[#E1E4EA]" />
                   <button onClick={handleSend} className="p-0" disabled={!inputValue.trim()}>
                     {inputValue.trim() ? (
                       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
