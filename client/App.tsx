@@ -25,6 +25,7 @@ import StudentLogin from "./pages/StudentLogin";
 import StudentWelcome from "./pages/StudentWelcome";
 import StudentBootcamp from "./pages/StudentBootcamp";
 import StudentOnboarding from "./pages/StudentOnboarding";
+import StudentProjects from "./pages/StudentProjects";
 
 const queryClient = new QueryClient();
 
