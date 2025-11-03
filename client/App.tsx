@@ -27,6 +27,10 @@ import StudentBootcamp from "./pages/StudentBootcamp";
 import StudentOnboarding from "./pages/StudentOnboarding";
 import StudentProjects from "./pages/StudentProjects";
 import StudentDashboard from "./pages/StudentDashboard";
+import AiMentor from "./pages/AiMentor";
+import Achievements from "./pages/Achievements";
+import StudentSchedule from "./pages/StudentSchedule";
+import Portfolio from "./pages/Portfolio";
 
 const queryClient = new QueryClient();
 
@@ -58,6 +62,10 @@ const App = () => (
           <Route path="/student-onboarding" element={<StudentOnboarding />} />
           <Route path="/student-projects" element={<StudentProjects />} />
           <Route path="/student-dashboard" element={<StudentDashboard />} />
+          <Route path="/ai-mentor" element={<AiMentor />} />
+          <Route path="/achievements" element={<Achievements />} />
+          <Route path="/schedule" element={<StudentSchedule />} />
+          <Route path="/portfolio" element={<Portfolio />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
