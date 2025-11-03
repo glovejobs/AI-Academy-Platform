@@ -1,6 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { Home, Users, BookOpen, Lightbulb, Mail, TrendingUp, Settings, Search, Filter, ChevronDown, Plus, Calendar, Star, Paperclip, MessageCircle, MoreVertical } from "lucide-react";
 import { useState } from "react";
+import AddProjectModal from "@/components/AddProjectModal";
 
 interface Project {
   id: string;
@@ -19,6 +20,7 @@ export default function MentorProjects() {
   const navigate = useNavigate();
   const location = useLocation();
   const [currentPage] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const navItems = [
     { id: "dashboard", label: "Dashboard", path: "/mentor-dashboard", icon: Home },
@@ -358,7 +360,10 @@ export default function MentorProjects() {
                   Your creative workspace
                 </p>
               </div>
-              <button className="flex items-center gap-2 h-14 px-8 rounded-full bg-[#9FE870] hover:bg-[#8ed65f] transition-colors">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="flex items-center gap-2 h-14 px-8 rounded-full bg-[#9FE870] hover:bg-[#8ed65f] transition-colors"
+              >
                 <Plus className="w-5 h-5 text-[#1E3006]" strokeWidth={2} />
                 <span className="text-[#1E3006] font-satoshi text-base font-bold leading-6 tracking-[-0.16px]">
                   Create New Project
@@ -460,6 +465,12 @@ export default function MentorProjects() {
           </div>
         </div>
       </div>
+
+      {/* Add Project Modal */}
+      <AddProjectModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }
