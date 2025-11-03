@@ -35,6 +35,8 @@ import MentorDashboard from "./pages/MentorDashboard";
 import MentorStudents from "./pages/MentorStudents";
 import MentorCurriculum from "./pages/MentorCurriculum";
 import MentorProjects from "./pages/MentorProjects";
+import MentorMessages from "./pages/MentorMessages";
+import MentorAnalytics from "./pages/MentorAnalytics";
 
 const queryClient = new QueryClient();
 
