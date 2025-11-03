@@ -31,6 +31,9 @@ import AiMentor from "./pages/AiMentor";
 import Achievements from "./pages/Achievements";
 import StudentSchedule from "./pages/StudentSchedule";
 import Portfolio from "./pages/Portfolio";
+import MentorDashboard from "./pages/MentorDashboard";
+import MentorStudents from "./pages/MentorStudents";
+import MentorCurriculum from "./pages/MentorCurriculum";
 
 const queryClient = new QueryClient();
 
@@ -66,6 +69,9 @@ const App = () => (
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/schedule" element={<StudentSchedule />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/mentor-dashboard" element={<MentorDashboard />} />
+          <Route path="/mentor-students" element={<MentorStudents />} />
+          <Route path="/mentor-curriculum" element={<MentorCurriculum />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
