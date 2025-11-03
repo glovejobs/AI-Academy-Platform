@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { Home, Users, BookOpen, Heart, Wand2, TrendingUp, Settings, Search, Download, ChevronDown, MoreVertical, Check, ChevronsUp, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddStudentModal from "@/components/AddStudentModal";
 import EditStudentModal from "@/components/EditStudentModal";
 import ReassignCohortModal from "@/components/ReassignCohortModal";
@@ -66,6 +66,22 @@ export default function AdminStudents() {
   const toggleDropdown = (studentId: string) => {
     setOpenDropdown(openDropdown === studentId ? null : studentId);
   };
+
+  useEffect(() => {
+    const handleClickOutside = () => {
+      if (openDropdown) {
+        setOpenDropdown(null);
+      }
+    };
+
+    if (openDropdown) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [openDropdown]);
 
   return (
     <div className="min-h-screen bg-[#1E3006] p-3 sm:p-6">
@@ -243,7 +259,10 @@ export default function AdminStudents() {
                     {students.map((student, idx) => (
                       <div key={student.id} className={`flex h-[72px] px-6 py-4 items-center justify-center rounded-r-full relative ${idx % 2 === 0 ? "bg-[#F9FAF9]" : "bg-white"}`}>
                         <button
-                          onClick={() => toggleDropdown(student.id)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleDropdown(student.id);
+                          }}
                           className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-200 transition-colors"
                         >
                           <MoreVertical className="w-5 h-5 stroke-[#404040]" />
