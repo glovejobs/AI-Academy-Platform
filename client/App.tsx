@@ -81,6 +81,7 @@ const App = () => (
           <Route path="/mentor-messages" element={<MentorMessages />} />
           <Route path="/mentor-analytics" element={<MentorAnalytics />} />
           <Route path="/mentor-settings" element={<MentorSettings />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
