@@ -3,6 +3,8 @@ import { Home, Users, BookOpen, Heart, Wand2, TrendingUp, Settings, Search, Down
 import { useState } from "react";
 import AddStudentModal from "@/components/AddStudentModal";
 import EditStudentModal from "@/components/EditStudentModal";
+import ReassignCohortModal from "@/components/ReassignCohortModal";
+import AssignMentorModal from "@/components/AssignMentorModal";
 
 interface Student {
   id: string;
@@ -18,6 +20,8 @@ export default function AdminStudents() {
   const location = useLocation();
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isReassignCohortModalOpen, setIsReassignCohortModalOpen] = useState(false);
+  const [isAssignMentorModalOpen, setIsAssignMentorModalOpen] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
@@ -44,6 +48,18 @@ export default function AdminStudents() {
   const handleEditStudent = (student: Student) => {
     setSelectedStudent(student);
     setIsEditModalOpen(true);
+    setOpenDropdown(null);
+  };
+
+  const handleReassignCohort = (student: Student) => {
+    setSelectedStudent(student);
+    setIsReassignCohortModalOpen(true);
+    setOpenDropdown(null);
+  };
+
+  const handleAssignMentor = (student: Student) => {
+    setSelectedStudent(student);
+    setIsAssignMentorModalOpen(true);
     setOpenDropdown(null);
   };
 
@@ -214,8 +230,57 @@ export default function AdminStudents() {
                       <span className="text-[#21231D] font-satoshi text-xs font-bold leading-[18px]">Completion Rate</span>
                     </div>
                     {students.map((student, idx) => (
-                      <div key={student.id} className={`flex h-[72px] px-6 py-4 items-center rounded-r-full ${idx % 2 === 0 ? "bg-[#F9FAF9]" : "bg-white"}`}>
+                      <div key={student.id} className={`flex h-[72px] px-6 py-4 items-center ${idx % 2 === 0 ? "bg-[#F9FAF9]" : "bg-white"}`}>
                         <span className="text-[#21231D] font-satoshi text-sm leading-5">{student.completionRate}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-col gap-4">
+                    <div className="flex h-11 px-6 py-3 items-center gap-3 border-b border-[#EAECF0] bg-white">
+                      <span className="text-[#21231D] font-satoshi text-xs font-bold leading-[18px]">Actions</span>
+                    </div>
+                    {students.map((student, idx) => (
+                      <div key={student.id} className={`flex h-[72px] px-6 py-4 items-center justify-center rounded-r-full relative ${idx % 2 === 0 ? "bg-[#F9FAF9]" : "bg-white"}`}>
+                        <button
+                          onClick={() => toggleDropdown(student.id)}
+                          className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-200 transition-colors"
+                        >
+                          <MoreVertical className="w-5 h-5 stroke-[#404040]" />
+                        </button>
+
+                        {openDropdown === student.id && (
+                          <div className="absolute right-0 top-12 w-48 bg-white rounded-2xl shadow-lg border border-[#EAECF0] z-10 py-2">
+                            <button
+                              onClick={() => handleEditStudent(student)}
+                              className="w-full px-4 py-2 text-left text-sm text-[#21231D] hover:bg-[#F9FAF9] transition-colors"
+                            >
+                              Edit Student
+                            </button>
+                            <button
+                              onClick={() => handleReassignCohort(student)}
+                              className="w-full px-4 py-2 text-left text-sm text-[#21231D] hover:bg-[#F9FAF9] transition-colors"
+                            >
+                              Reassign Cohort
+                            </button>
+                            <button
+                              onClick={() => handleAssignMentor(student)}
+                              className="w-full px-4 py-2 text-left text-sm text-[#21231D] hover:bg-[#F9FAF9] transition-colors"
+                            >
+                              Assign New Mentor
+                            </button>
+                            <div className="h-[1px] bg-[#EAECF0] my-2"></div>
+                            <button
+                              onClick={() => {
+                                console.log('Delete student:', student.id);
+                                setOpenDropdown(null);
+                              }}
+                              className="w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-red-50 transition-colors"
+                            >
+                              Delete Student
+                            </button>
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -262,6 +327,8 @@ export default function AdminStudents() {
 
       <AddStudentModal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} />
       <EditStudentModal isOpen={isEditModalOpen} onClose={() => setIsEditModalOpen(false)} student={selectedStudent} />
+      <ReassignCohortModal isOpen={isReassignCohortModalOpen} onClose={() => setIsReassignCohortModalOpen(false)} student={selectedStudent} />
+      <AssignMentorModal isOpen={isAssignMentorModalOpen} onClose={() => setIsAssignMentorModalOpen(false)} student={selectedStudent} />
     </div>
   );
 }
