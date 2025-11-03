@@ -38,6 +38,7 @@ import MentorProjects from "./pages/MentorProjects";
 import MentorMessages from "./pages/MentorMessages";
 import MentorAnalytics from "./pages/MentorAnalytics";
 import MentorSettings from "./pages/MentorSettings";
+import AdminDashboard from "./pages/AdminDashboard";
 
 const queryClient = new QueryClient();
 
