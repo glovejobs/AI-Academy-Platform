@@ -245,7 +245,7 @@ export default function MentorProfile() {
                         <span className="text-[#6A8042] font-satoshi text-base font-bold leading-6 tracking-[-0.16px]">
                           {activity.actor}
                         </span>
-                        <span className="text-[#64748B] font-montserrat text-sm leading-5">•</span>
+                        <span className="text-[#64748B] text-sm leading-5">•</span>
                         <span className="text-[#21231D] font-satoshi text-lg leading-7 tracking-[-0.18px]">
                           {activity.time}
                         </span>
