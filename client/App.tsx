@@ -34,6 +34,7 @@ import Portfolio from "./pages/Portfolio";
 import MentorDashboard from "./pages/MentorDashboard";
 import MentorStudents from "./pages/MentorStudents";
 import MentorCurriculum from "./pages/MentorCurriculum";
+import MentorProjects from "./pages/MentorProjects";
 
 const queryClient = new QueryClient();
 
