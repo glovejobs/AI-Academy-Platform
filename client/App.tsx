@@ -44,6 +44,7 @@ import AdminMentors from "./pages/AdminMentors";
 import AdminParents from "./pages/AdminParents";
 import AdminPrograms from "./pages/AdminPrograms";
 import AdminAISystemLogs from "./pages/AdminAISystemLogs";
+import AdminReports from "./pages/AdminReports";
 import MentorProfile from "./pages/MentorProfile";
 import MentorModalsDemo from "./pages/MentorModalsDemo";
 
@@ -94,6 +95,7 @@ const App = () => (
           <Route path="/admin-parents" element={<AdminParents />} />
           <Route path="/admin-programs" element={<AdminPrograms />} />
           <Route path="/admin-ai-logs" element={<AdminAISystemLogs />} />
+          <Route path="/admin-reports" element={<AdminReports />} />
           <Route path="/mentor-profile/:id" element={<MentorProfile />} />
           <Route path="/mentor-modals-demo" element={<MentorModalsDemo />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
