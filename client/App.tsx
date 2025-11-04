@@ -42,6 +42,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminStudents from "./pages/AdminStudents";
 import AdminMentors from "./pages/AdminMentors";
 import AdminParents from "./pages/AdminParents";
+import AdminPrograms from "./pages/AdminPrograms";
 import MentorProfile from "./pages/MentorProfile";
 import MentorModalsDemo from "./pages/MentorModalsDemo";
 
@@ -90,6 +91,7 @@ const App = () => (
           <Route path="/admin-students" element={<AdminStudents />} />
           <Route path="/admin-mentors" element={<AdminMentors />} />
           <Route path="/admin-parents" element={<AdminParents />} />
+          <Route path="/admin-programs" element={<AdminPrograms />} />
           <Route path="/mentor-profile/:id" element={<MentorProfile />} />
           <Route path="/mentor-modals-demo" element={<MentorModalsDemo />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
