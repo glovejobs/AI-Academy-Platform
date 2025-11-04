@@ -2,6 +2,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Home, Users, BookOpen, Heart, Wand2, TrendingUp, Settings, MoreVertical } from "lucide-react";
 import { useState, useEffect } from "react";
 import AddMentorModal from "@/components/AddMentorModal";
+import EditMentorModal from "@/components/EditMentorModal";
 
 interface Mentor {
   id: string;
@@ -16,6 +17,8 @@ export default function AdminMentors() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [selectedMentor, setSelectedMentor] = useState<Mentor | null>(null);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const navItems = [
@@ -210,14 +213,27 @@ export default function AdminMentors() {
                           <span className="text-[#21231D] font-random-grotesque-bold text-sm font-bold leading-5">Action</span>
                         </div>
                         <div className="py-1 border-b border-[#EAECF0]">
-                          <button className="w-full px-3 py-2 flex items-center gap-2 text-left text-sm text-[#21231D] font-satoshi font-medium hover:bg-gray-50 transition-colors">
+                          <button
+                            onClick={() => {
+                              navigate(`/mentor-profile/${mentor.id}`);
+                              setOpenDropdown(null);
+                            }}
+                            className="w-full px-3 py-2 flex items-center gap-2 text-left text-sm text-[#21231D] font-satoshi font-medium hover:bg-gray-50 transition-colors"
+                          >
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M0.666626 8.00008C0.666626 8.00008 3.33329 2.66675 7.99996 2.66675C12.6666 2.66675 15.3333 8.00008 15.3333 8.00008C15.3333 8.00008 12.6666 13.3334 7.99996 13.3334C3.33329 13.3334 0.666626 8.00008 0.666626 8.00008Z" stroke="#1E1E1E" strokeLinecap="round" strokeLinejoin="round"/>
                               <path d="M7.99996 10.0001C9.10453 10.0001 9.99996 9.10465 9.99996 8.00008C9.99996 6.89551 9.10453 6.00008 7.99996 6.00008C6.89539 6.00008 5.99996 6.89551 5.99996 8.00008C5.99996 9.10465 6.89539 10.0001 7.99996 10.0001Z" stroke="#1E1E1E" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                             View Profile
                           </button>
-                          <button className="w-full px-3 py-2 flex items-center gap-2 text-left text-sm text-[#21231D] font-satoshi font-medium hover:bg-gray-50 transition-colors">
+                          <button
+                            onClick={() => {
+                              setSelectedMentor(mentor);
+                              setIsEditModalOpen(true);
+                              setOpenDropdown(null);
+                            }}
+                            className="w-full px-3 py-2 flex items-center gap-2 text-left text-sm text-[#21231D] font-satoshi font-medium hover:bg-gray-50 transition-colors"
+                          >
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M8 13.3334H14M11 2.3334C11.2652 2.06819 11.6249 1.91919 12 1.91919C12.1857 1.91919 12.3696 1.95577 12.5412 2.02684C12.7128 2.09791 12.8687 2.20208 13 2.3334C13.1313 2.46472 13.2355 2.62063 13.3066 2.79221C13.3776 2.96379 13.4142 3.14769 13.4142 3.3334C13.4142 3.51912 13.3776 3.70302 13.3066 3.8746C13.2355 4.04618 13.1313 4.20208 13 4.3334L4.66667 12.6667L2 13.3334L2.66667 10.6667L11 2.3334Z" stroke="#1E1E1E" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
@@ -297,6 +313,7 @@ export default function AdminMentors() {
       </div>
 
       <AddMentorModal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} />
+      <EditMentorModal isOpen={isEditModalOpen} onClose={() => setIsEditModalOpen(false)} mentor={selectedMentor} />
     </div>
   );
 }
