@@ -97,6 +97,7 @@ const App = () => (
           <Route path="/admin-programs" element={<AdminPrograms />} />
           <Route path="/admin-ai-logs" element={<AdminAISystemLogs />} />
           <Route path="/admin-reports" element={<AdminReports />} />
+          <Route path="/admin-settings" element={<AdminSettings />} />
           <Route path="/mentor-profile/:id" element={<MentorProfile />} />
           <Route path="/mentor-modals-demo" element={<MentorModalsDemo />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
