@@ -45,6 +45,7 @@ import AdminParents from "./pages/AdminParents";
 import AdminPrograms from "./pages/AdminPrograms";
 import AdminAISystemLogs from "./pages/AdminAISystemLogs";
 import AdminReports from "./pages/AdminReports";
+import AdminSettings from "./pages/AdminSettings";
 import MentorProfile from "./pages/MentorProfile";
 import MentorModalsDemo from "./pages/MentorModalsDemo";
 
