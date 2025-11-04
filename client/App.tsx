@@ -40,6 +40,7 @@ import MentorAnalytics from "./pages/MentorAnalytics";
 import MentorSettings from "./pages/MentorSettings";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminStudents from "./pages/AdminStudents";
+import AdminMentors from "./pages/AdminMentors";
 import MentorProfile from "./pages/MentorProfile";
 
 const queryClient = new QueryClient();
@@ -85,6 +86,7 @@ const App = () => (
           <Route path="/mentor-settings" element={<MentorSettings />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/admin-students" element={<AdminStudents />} />
+          <Route path="/admin-mentors" element={<AdminMentors />} />
           <Route path="/mentor-profile/:id" element={<MentorProfile />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
