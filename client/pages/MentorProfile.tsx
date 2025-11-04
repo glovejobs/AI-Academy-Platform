@@ -306,7 +306,7 @@ export default function MentorProfile() {
                           )}
                         </div>
                         {index < activityFeedItems.length - 1 && (
-                          <div className="w-0 flex-1 border-l border-[#E2E8F0]"></div>
+                          <div className="w-px flex-1 border-l border-[#E2E8F0]"></div>
                         )}
                       </div>
 
@@ -344,7 +344,7 @@ export default function MentorProfile() {
 
           <div className="w-[480px] flex p-[16px_16px_48px_16px] flex-col items-end gap-4 rounded-[32px] bg-white">
             <div className="flex flex-col gap-12 w-full">
-              <div className="flex flex-col items-center gap-[-40px] rounded-t-3xl">
+              <div className="flex flex-col items-center rounded-t-3xl">
                 <div className="w-full h-[240px] rounded-t-[32px] bg-gradient-to-r from-[#163300] via-[#9FE870] to-[#9FE870]"></div>
                 
                 <div className="flex px-8 flex-col gap-6 w-full -mt-[80px]">
