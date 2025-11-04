@@ -1,12 +1,14 @@
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { Home, Users, BookOpen, Heart, Wand2, TrendingUp, Settings, ArrowLeft, ChevronDown, MoreVertical, Phone, Book } from "lucide-react";
 import { useState } from "react";
+import AssignCohortModal from "@/components/AssignCohortModal";
 
 export default function MentorProfile() {
   const navigate = useNavigate();
   const location = useLocation();
   const { id } = useParams();
   const [activeTab, setActiveTab] = useState<"performance" | "activity">("performance");
+  const [isAssignCohortModalOpen, setIsAssignCohortModalOpen] = useState(false);
 
   const navItems = [
     { id: "dashboard", label: "Dashboard", path: "/admin-dashboard", icon: Home },
@@ -22,6 +24,67 @@ export default function MentorProfile() {
   const subjectAreas = [
     "AI Research", "Imaging", "Writing", "Advertising", "Video", "Vibe Coding", "Product Design"
   ];
+
+  const activityFeedItems = [
+    {
+      id: 1,
+      type: "favorite",
+      iconBg: "#EE7A13",
+      user: "Michael Lamb",
+      action: "was favorited by",
+      item: "Candide",
+      time: "Just now",
+      hasContent: false
+    },
+    {
+      id: 2,
+      type: "reading",
+      iconBg: "#EDC843",
+      user: "Teresa Silva",
+      action: "started reading",
+      item: "Siddhartha",
+      time: "1 min ago",
+      hasContent: true,
+      content: ""So excited to get started on this novel! The prose and style of it is absolutely gorgeous, and its meaning and philosophy is something to truly cherish.""
+    },
+    {
+      id: 3,
+      type: "favorite",
+      iconBg: "#FFC091",
+      user: "Maria Gardner",
+      action: "was favorited by",
+      item: "The Alchemist",
+      time: "2 mins ago",
+      hasContent: false
+    },
+    {
+      id: 4,
+      type: "review",
+      iconBg: "#FFD7EF",
+      user: "Loretta Goodman",
+      action: "reviewed",
+      item: "Rebecca",
+      time: "1 min ago",
+      hasContent: true,
+      content: ""This is one of the few books I just love to read again and again. The book has a very beautiful description of its characters and the mansion of menederly. It can also be described as an amazing gothic mystery love story. The unfolding of the mystery is marvellously depicted making us grip to the book till the end.""
+    },
+    {
+      id: 5,
+      type: "review",
+      iconBg: "#FFD7EF",
+      user: "Loretta Goodman",
+      action: "reviewed",
+      item: "Rebecca",
+      time: "1 min ago",
+      hasContent: true,
+      content: ""This is one of the few books I just love to read again and again. The book has a very beautiful description of its characters and the mansion of menederly. It can also be described as an amazing gothic mystery love story. The unfolding of the mystery is marvellously depicted making us grip to the book till the end.""
+    }
+  ];
+
+  const mentorData = {
+    name: "Sarah Martinez",
+    currentCohort: "Product Design"
+  };
 
   return (
     <div className="min-h-screen bg-[#1E3006] p-3 sm:p-6">
@@ -86,13 +149,13 @@ export default function MentorProfile() {
               onClick={() => setActiveTab("performance")}
               className={`flex px-1 py-3 items-center gap-2 border-b-2 ${
                 activeTab === "performance" 
-                  ? "border-[rgba(230,234,241,0.60)]" 
+                  ? "border-[#6A8042]" 
                   : "border-transparent"
               }`}
             >
               <span className={`font-satoshi text-sm leading-5 ${
                 activeTab === "performance" 
-                  ? "text-[#6A8042] font-bold" 
+                  ? "text-[#6A8042] font-medium" 
                   : "text-[#8C8C8C] font-medium"
               }`}>Performance Metrics</span>
             </button>
@@ -100,13 +163,13 @@ export default function MentorProfile() {
               onClick={() => setActiveTab("activity")}
               className={`flex px-1 py-3 items-center gap-2 border-b-2 ${
                 activeTab === "activity" 
-                  ? "border-[rgba(230,234,241,0.60)]" 
+                  ? "border-[#6A8042]" 
                   : "border-transparent"
               }`}
             >
               <span className={`font-satoshi text-sm leading-5 ${
                 activeTab === "activity" 
-                  ? "text-[#6A8042] font-bold" 
+                  ? "text-[#6A8042] font-medium" 
                   : "text-[#8C8C8C] font-medium"
               }`}>Activity</span>
             </button>
@@ -115,98 +178,168 @@ export default function MentorProfile() {
 
         <div className="flex items-start gap-6">
           <div className="flex flex-col gap-12 flex-1 p-[43px_16px_48px_16px] rounded-[32px] bg-white">
-            <div className="flex p-4 flex-col gap-6 rounded-[32px] border border-[rgba(0,0,0,0.10)] bg-[#F9FAF9]">
-              <div className="flex flex-col gap-5">
-                <div className="flex items-start gap-4">
-                  <div className="flex-1 flex flex-col gap-1">
-                    <h3 className="text-black font-satoshi text-lg font-bold leading-7 tracking-[-0.36px]">Performance Metrics</h3>
+            {activeTab === "performance" ? (
+              <>
+                <div className="flex p-4 flex-col gap-6 rounded-[32px] border border-[rgba(0,0,0,0.10)] bg-[#F9FAF9]">
+                  <div className="flex flex-col gap-5">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-1 flex flex-col gap-1">
+                        <h3 className="text-black font-satoshi text-lg font-bold leading-7 tracking-[-0.36px]">Performance Metrics</h3>
+                      </div>
+                    </div>
+                    <div className="h-[1px] bg-[#EAECF0]"></div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="flex p-4 flex-col gap-6 flex-1 rounded-[20px] border border-[rgba(0,0,0,0.10)] bg-white">
+                      <div className="flex flex-col gap-2">
+                        <span className="text-[#404040] font-satoshi text-base leading-6 tracking-[-0.16px]">Completion Rate</span>
+                        <h2 className="text-black font-random-grotesque-bold text-[64px] font-bold leading-[85%]">94%</h2>
+                      </div>
+                    </div>
+                    <div className="flex p-4 flex-col gap-6 flex-1 rounded-[20px] border border-[rgba(0,0,0,0.10)] bg-white">
+                      <div className="flex flex-col gap-2">
+                        <span className="text-[#404040] font-satoshi text-base leading-6 tracking-[-0.16px]">Avg. Student XP</span>
+                        <h2 className="text-black font-random-grotesque-bold text-[64px] font-bold leading-[85%]">4.2k</h2>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="flex p-4 flex-col gap-6 flex-1 rounded-[20px] border border-[rgba(0,0,0,0.10)] bg-white">
+                      <div className="flex flex-col gap-2">
+                        <span className="text-[#404040] font-satoshi text-base leading-6 tracking-[-0.16px]">Feedback Timeliness</span>
+                        <h2 className="text-black font-random-grotesque-bold text-[64px] font-bold leading-[85%]">96%</h2>
+                      </div>
+                    </div>
+                    <div className="flex p-4 flex-col gap-6 flex-1 rounded-[20px] border border-[rgba(0,0,0,0.10)] bg-white">
+                      <div className="flex flex-col gap-2">
+                        <span className="text-[#404040] font-satoshi text-base leading-6 tracking-[-0.16px]">Student Satisfaction</span>
+                        <h2 className="text-black font-random-grotesque-bold text-[64px] font-bold leading-[85%]">4.8/5</h2>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="h-[1px] bg-[#EAECF0]"></div>
+
+                <div className="flex p-[24px_16px_16px_16px] flex-col gap-6 rounded-[32px] border border-[rgba(0,0,0,0.10)] bg-[#F9FAF9]">
+                  <div className="flex flex-col gap-5">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-1 flex flex-col gap-1">
+                        <h3 className="text-black font-satoshi text-lg font-bold leading-7 tracking-[-0.36px]">Cohort Engagement Over 8 Weeks</h3>
+                      </div>
+                    </div>
+                    <div className="h-[1px] bg-[#EAECF0]"></div>
+                  </div>
+
+                  <div className="flex h-[537px] p-6 flex-col justify-center items-center gap-12 rounded-3xl border border-[rgba(230,234,241,0.60)] bg-white">
+                    <div className="flex justify-between items-center w-full">
+                      <div className="flex items-center gap-2">
+                        <button className="flex px-4 py-2 items-center gap-2 rounded-full border border-[#E2E8F0] bg-white">
+                          <span className="text-[#21231D] font-satoshi text-sm leading-5">Filter</span>
+                          <ChevronDown className="w-4 h-4 stroke-[#21231D]" />
+                        </button>
+                        <button className="flex px-4 py-2 items-center gap-2 rounded-full border border-[#E2E8F0] bg-white">
+                          <span className="text-[#21231D] font-satoshi text-sm leading-5">Filter</span>
+                          <ChevronDown className="w-4 h-4 stroke-[#21231D]" />
+                        </button>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[#21231D] font-satoshi text-sm leading-5">Range:</span>
+                        <button className="flex px-4 py-2 items-center gap-2 rounded-full border border-[#E2E8F0] bg-white">
+                          <span className="text-[#21231D] font-satoshi text-sm leading-5">All Time</span>
+                          <ChevronDown className="w-4 h-4 stroke-[#21231D]" />
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="flex-1 w-full flex items-center justify-center">
+                      <div className="text-[#8C8C8C] font-satoshi text-base">Chart visualization placeholder</div>
+                    </div>
+
+                    <div className="flex items-center justify-between w-full">
+                      <div className="flex items-center gap-4 text-xs text-[#21231D] font-satoshi font-medium">
+                        <span>Week 1</span>
+                        <span>Week 2</span>
+                        <span>Week 3</span>
+                        <span>Week 4</span>
+                        <span>Week 5</span>
+                        <span>Week 6</span>
+                        <span>Week 7</span>
+                        <span>Week 8</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="flex p-4 flex-col gap-6 rounded-[32px] border border-[rgba(0,0,0,0.10)] bg-[#F9FAF9]">
+                <div className="flex flex-col gap-5">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-1 flex flex-col gap-1">
+                      <h3 className="text-black font-satoshi text-lg font-bold leading-7 tracking-[-0.36px]">Performance Metrics</h3>
+                    </div>
+                  </div>
+                  <div className="h-[1px] bg-[#EAECF0]"></div>
+                </div>
+
+                <div className="flex p-6 flex-col gap-4 rounded-3xl border border-[#6A8042] bg-white">
+                  {activityFeedItems.map((item, index) => (
+                    <div key={item.id} className="flex items-start gap-4">
+                      <div className="flex w-6 flex-col items-center relative">
+                        <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ backgroundColor: item.iconBg }}>
+                          {item.type === "favorite" && (
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fillRule="evenodd" clipRule="evenodd" d="M7.99653 4.8223C7.03017 3.74016 5.41871 3.44907 4.20794 4.43998C2.99717 5.4309 2.8267 7.08766 3.77753 8.25961L7.99653 12.1668L12.2155 8.25961C13.1663 7.08766 13.0167 5.42047 11.7851 4.43998C10.5535 3.45949 8.96288 3.74016 7.99653 4.8223Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          )}
+                          {item.type === "reading" && (
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M7.99984 4.49984L3.1665 3.1665V11.4998L7.99984 12.8332" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M8 4.6665V12.6665" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M8 4.49984L12.8333 3.1665V11.4998L8 12.8332" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          )}
+                          {item.type === "review" && (
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M7.99984 3.16675L9.1665 6.83341H12.8332L9.83317 9.16675L10.8332 12.8334L7.99984 10.5001L5.1665 12.8334L6.1665 9.16675L3.1665 6.83341H6.83317L7.99984 3.16675Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          )}
+                        </div>
+                        {index < activityFeedItems.length - 1 && (
+                          <div className="w-0 flex-1 border-l border-[#E2E8F0]"></div>
+                        )}
+                      </div>
+
+                      <div className="flex-1 flex flex-col gap-2 pt-1">
+                        <div className="flex items-center gap-1 flex-wrap">
+                          <span className="text-[#6A8042] font-satoshi text-base font-bold leading-6 tracking-[-0.16px]">
+                            {item.item}
+                          </span>
+                          <span className="text-[#21231D] font-satoshi text-lg leading-7 tracking-[-0.18px]">
+                            {item.action}
+                          </span>
+                          <span className="text-[#6A8042] font-satoshi text-base font-bold leading-6 tracking-[-0.16px]">
+                            {item.user}
+                          </span>
+                          <span className="text-[#64748B] font-montserrat text-sm leading-5">•</span>
+                          <span className="text-[#21231D] font-satoshi text-lg leading-7 tracking-[-0.18px]">
+                            {item.time}
+                          </span>
+                        </div>
+
+                        {item.hasContent && (
+                          <div className="flex p-4 rounded-2xl border border-[rgba(0,0,0,0.10)] bg-[#F9FAF9]">
+                            <p className="text-[#21231D] font-satoshi text-base leading-6 tracking-[-0.16px]">
+                              {item.content}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex p-4 flex-col gap-6 flex-1 rounded-[20px] border border-[rgba(0,0,0,0.10)] bg-white">
-                  <div className="flex flex-col gap-2">
-                    <span className="text-[#404040] font-satoshi text-base leading-6 tracking-[-0.16px]">Completion Rate</span>
-                    <h2 className="text-black font-random-grotesque-bold text-[64px] font-bold leading-[85%]">94%</h2>
-                  </div>
-                </div>
-                <div className="flex p-4 flex-col gap-6 flex-1 rounded-[20px] border border-[rgba(0,0,0,0.10)] bg-white">
-                  <div className="flex flex-col gap-2">
-                    <span className="text-[#404040] font-satoshi text-base leading-6 tracking-[-0.16px]">Avg. Student XP</span>
-                    <h2 className="text-black font-random-grotesque-bold text-[64px] font-bold leading-[85%]">4.2k</h2>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex p-4 flex-col gap-6 flex-1 rounded-[20px] border border-[rgba(0,0,0,0.10)] bg-white">
-                  <div className="flex flex-col gap-2">
-                    <span className="text-[#404040] font-satoshi text-base leading-6 tracking-[-0.16px]">Feedback Timeliness</span>
-                    <h2 className="text-black font-random-grotesque-bold text-[64px] font-bold leading-[85%]">96%</h2>
-                  </div>
-                </div>
-                <div className="flex p-4 flex-col gap-6 flex-1 rounded-[20px] border border-[rgba(0,0,0,0.10)] bg-white">
-                  <div className="flex flex-col gap-2">
-                    <span className="text-[#404040] font-satoshi text-base leading-6 tracking-[-0.16px]">Student Satisfaction</span>
-                    <h2 className="text-black font-random-grotesque-bold text-[64px] font-bold leading-[85%]">4.8/5</h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex p-[24px_16px_16px_16px] flex-col gap-6 rounded-[32px] border border-[rgba(0,0,0,0.10)] bg-[#F9FAF9]">
-              <div className="flex flex-col gap-5">
-                <div className="flex items-start gap-4">
-                  <div className="flex-1 flex flex-col gap-1">
-                    <h3 className="text-black font-satoshi text-lg font-bold leading-7 tracking-[-0.36px]">Cohort Engagement Over 8 Weeks</h3>
-                  </div>
-                </div>
-                <div className="h-[1px] bg-[#EAECF0]"></div>
-              </div>
-
-              <div className="flex h-[537px] p-6 flex-col justify-center items-center gap-12 rounded-3xl border border-[rgba(230,234,241,0.60)] bg-white">
-                <div className="flex justify-between items-center w-full">
-                  <div className="flex items-center gap-2">
-                    <button className="flex px-4 py-2 items-center gap-2 rounded-full border border-[#E2E8F0] bg-white">
-                      <span className="text-[#21231D] font-satoshi text-sm leading-5">Filter</span>
-                      <ChevronDown className="w-4 h-4 stroke-[#21231D]" />
-                    </button>
-                    <button className="flex px-4 py-2 items-center gap-2 rounded-full border border-[#E2E8F0] bg-white">
-                      <span className="text-[#21231D] font-satoshi text-sm leading-5">Filter</span>
-                      <ChevronDown className="w-4 h-4 stroke-[#21231D]" />
-                    </button>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[#21231D] font-satoshi text-sm leading-5">Range:</span>
-                    <button className="flex px-4 py-2 items-center gap-2 rounded-full border border-[#E2E8F0] bg-white">
-                      <span className="text-[#21231D] font-satoshi text-sm leading-5">All Time</span>
-                      <ChevronDown className="w-4 h-4 stroke-[#21231D]" />
-                    </button>
-                  </div>
-                </div>
-
-                <div className="flex-1 w-full flex items-end justify-center gap-2">
-                  <svg width="672" height="405" viewBox="0 0 672 405" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                    <path d="M604 46.2239C595.4 46.2239 595.4 71.1111 586.8 71.1111C578.2 71.1111 578.558 60.6673 569.6 60.6673C560.642 60.6673 561.358 91.3319 552.4 91.3319C543.442 91.3319 544.875 79.0216 535.2 79.0216C525.525 79.0216 528.033 108.931 518 108.931C507.967 108.931 509.4 64.8893 500.8 64.8893C492.2 64.8893 492.917 97.0204 483.6 97.0204C474.283 97.0204 475.717 88.221 466.4 88.221C457.083 88.221 458.517 110.22 449.2 110.22C439.883 110.22 440.958 120.885 432 120.885C423.042 120.885 423.758 96.8871 414.8 96.8871C405.842 96.8871 406.917 122.13 397.6 122.13C388.283 122.13 390.433 106.886 380.4 106.886C370.367 106.886 372.158 89.9098 363.2 89.9098C354.242 89.9098 355.317 128.663 346 128.663C336.683 128.663 338.117 73.3332 328.8 73.3332C319.483 73.3332 320.558 106.398 311.6 106.398C302.642 106.398 304.433 126.174 294.4 126.174C284.367 126.174 286.875 114.175 277.2 114.175C267.525 114.175 270.033 138.618 260 138.618C249.967 138.618 252.475 129.196 242.8 129.196C233.125 129.196 234.917 114.93 225.6 114.93C216.283 114.93 217.717 166.171 208.4 166.171C199.083 166.171 201.233 153.639 191.2 153.639C181.167 153.639 182.6 173.237 174 173.237C165.4 173.237 166.475 159.238 156.8 159.238C147.125 159.238 148.558 199.68 139.6 199.68C130.642 199.68 132.433 187.503 122.4 187.503C112.367 187.503 114.875 178.659 105.2 178.659C95.525 178.659 97.3166 205.769 88 205.769C78.6833 205.769 80.8333 211.457 70.8 211.457C60.7667 211.457 63.6333 196.48 53.6 196.48C43.5666 196.48 45 188.481 36.4 188.481C27.8 188.481 27.8 214.479 19.2 214.479C10.6 214.479 11.3167 205.324 1.99998 205.324" stroke="#6A8042" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-
-                <div className="flex items-center justify-between w-full">
-                  <div className="flex items-center gap-4 text-xs text-[#21231D] font-satoshi font-medium">
-                    <span>Week 1</span>
-                    <span>Week 2</span>
-                    <span>Week 3</span>
-                    <span>Week 4</span>
-                    <span>Week 5</span>
-                    <span>Week 6</span>
-                    <span>Week 7</span>
-                    <span>Week 8</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            )}
           </div>
 
           <div className="w-[480px] flex p-[16px_16px_48px_16px] flex-col items-end gap-4 rounded-[32px] bg-white">
@@ -228,7 +361,7 @@ export default function MentorProfile() {
                     <div className="flex flex-col gap-5">
                       <div className="flex items-center gap-4">
                         <div className="flex flex-col gap-1 flex-1">
-                          <h2 className="text-[#21231D] font-random-grotesque-bold text-[26px] font-bold leading-8 tracking-[-0.39px]">Sarah Martinez</h2>
+                          <h2 className="text-[#101828] font-random-grotesque-bold text-[26px] font-bold leading-8 tracking-[-0.39px]">Sarah Martinez</h2>
                           <p className="text-[#404040] font-satoshi text-base leading-6">olivia@emai.com</p>
                         </div>
                         <div className="flex px-2 py-0.5 items-center rounded-2xl bg-[#F9FAF9]">
@@ -259,7 +392,12 @@ export default function MentorProfile() {
                       </div>
                       <div className="flex justify-between items-center flex-1">
                         <span className="text-[#404040] font-satoshi text-sm leading-6 tracking-[-0.14px]">Assigned Cohort</span>
-                        <span className="w-[212px] text-black font-satoshi text-sm font-bold leading-6 tracking-[-0.14px]">e.g., AI Storytelling – Week 4)</span>
+                        <button 
+                          onClick={() => setIsAssignCohortModalOpen(true)}
+                          className="w-[212px] text-black font-satoshi text-sm font-bold leading-6 tracking-[-0.14px] hover:text-[#6A8042] transition-colors text-right"
+                        >
+                          e.g., AI Storytelling – Week 4)
+                        </button>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
@@ -325,6 +463,12 @@ export default function MentorProfile() {
           </div>
         </div>
       </div>
+
+      <AssignCohortModal
+        isOpen={isAssignCohortModalOpen}
+        onClose={() => setIsAssignCohortModalOpen(false)}
+        mentor={mentorData}
+      />
     </div>
   );
 }
