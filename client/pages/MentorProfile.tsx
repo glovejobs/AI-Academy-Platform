@@ -45,7 +45,7 @@ export default function MentorProfile() {
       item: "Siddhartha",
       time: "1 min ago",
       hasContent: true,
-      content: ""So excited to get started on this novel! The prose and style of it is absolutely gorgeous, and its meaning and philosophy is something to truly cherish.""
+      content: "'So excited to get started on this novel! The prose and style of it is absolutely gorgeous, and its meaning and philosophy is something to truly cherish.'"
     },
     {
       id: 3,
@@ -66,7 +66,7 @@ export default function MentorProfile() {
       item: "Rebecca",
       time: "1 min ago",
       hasContent: true,
-      content: ""This is one of the few books I just love to read again and again. The book has a very beautiful description of its characters and the mansion of menederly. It can also be described as an amazing gothic mystery love story. The unfolding of the mystery is marvellously depicted making us grip to the book till the end.""
+      content: "'This is one of the few books I just love to read again and again. The book has a very beautiful description of its characters and the mansion of menederly. It can also be described as an amazing gothic mystery love story. The unfolding of the mystery is marvellously depicted making us grip to the book till the end.'"
     },
     {
       id: 5,
@@ -77,7 +77,7 @@ export default function MentorProfile() {
       item: "Rebecca",
       time: "1 min ago",
       hasContent: true,
-      content: ""This is one of the few books I just love to read again and again. The book has a very beautiful description of its characters and the mansion of menederly. It can also be described as an amazing gothic mystery love story. The unfolding of the mystery is marvellously depicted making us grip to the book till the end.""
+      content: "'This is one of the few books I just love to read again and again. The book has a very beautiful description of its characters and the mansion of menederly. It can also be described as an amazing gothic mystery love story. The unfolding of the mystery is marvellously depicted making us grip to the book till the end.'"
     }
   ];
 
