@@ -116,7 +116,7 @@ export default function StudentOnboarding() {
                 }`}
               >
                 <div
-                  className={`flex w-5 h-5 flex-col justify-center items-center rounded-full ${
+                  className={`flex w-4 h-4 flex-col justify-center items-center rounded-full ${
                     step.status === "completed" || step.status === "active"
                       ? "bg-[#B1FA63]"
                       : "bg-black/5"
@@ -134,7 +134,7 @@ export default function StudentOnboarding() {
                 </div>
               </div>
               {index < steps.length - 1 && (
-                <div className={`w-6 h-0.5 ${step.status === "completed" ? "bg-[#B1FA63]" : step.status === "active" ? "bg-[#CBD5E1]" : "bg-black/5"}`} />
+                <div className={`w-4 h-0.5 ${step.status === "completed" ? "bg-[#B1FA63]" : step.status === "active" ? "bg-[#CBD5E1]" : "bg-black/5"}`} />
               )}
             </div>
           ))}
