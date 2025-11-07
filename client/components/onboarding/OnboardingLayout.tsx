@@ -52,8 +52,8 @@ export function OnboardingLayout({
         </div>
       </header>
 
-      <main className="flex-1 px-4 sm:px-6 overflow-hidden flex flex-col">
-        <div className={`mx-auto w-full ${contentWidthClass} py-6 sm:py-8 flex flex-col justify-center`}>
+      <main className="flex-1 px-4 sm:px-6 overflow-y-auto flex flex-col">
+        <div className={`mx-auto w-full ${contentWidthClass} py-6 sm:py-8 flex flex-col`}>
           {children}
         </div>
       </main>
