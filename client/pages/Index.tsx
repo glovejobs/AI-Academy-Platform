@@ -17,12 +17,12 @@ export default function Index() {
       progressLabel="0%"
       progressFillWidth={2.8}
       footer={
-        <div className="w-full bg-white rounded-[32px] border border-black/[0.08] p-4 sm:p-6 flex justify-end">
+        <div className="w-full bg-white rounded-[32px] border border-black/[0.08] p-2 sm:p-3 flex justify-end">
           <button
             onClick={handleNext}
-            className="px-8 py-4 h-14 bg-[#EDEFEB] rounded-full border border-black/[0.08] hover:bg-[#E0E5DC] transition-colors"
+            className="px-6 py-2 h-11 bg-[#EDEFEB] rounded-full border border-black/[0.08] hover:bg-[#E0E5DC] transition-colors"
           >
-            <span className="text-lg font-bold text-[#163300] leading-[1.2] font-heading">
+            <span className="text-sm sm:text-base font-bold text-[#163300] leading-[1.2] font-heading">
               Next
             </span>
           </button>
