@@ -140,7 +140,7 @@ export default function StudentOnboarding() {
           ))}
         </div>
         {/* Scrollable Messages Container */}
-        <div className="flex-1 overflow-y-auto px-4 sm:px-8 py-4 flex flex-col gap-3">
+        <div className="flex-1 overflow-y-auto px-3 sm:px-6 py-3 flex flex-col gap-2">
           {messages.map((message) => (
             <div key={message.id}>
               {message.type === "ai" ? (
@@ -206,7 +206,7 @@ export default function StudentOnboarding() {
         </div>
 
         {/* Fixed Input Area at Bottom */}
-        <div className="flex flex-col gap-3 px-4 sm:px-8 py-4 bg-white flex-shrink-0 border-t border-[#E1E4EA]">
+        <div className="flex flex-col gap-2 px-3 sm:px-6 py-3 bg-white flex-shrink-0 border-t border-[#E1E4EA]">
           <div className="flex flex-col w-full">
             {showInfoBanner && (
               <div className="flex items-center gap-1.5 px-3 py-2.5 rounded-t-3xl border border-[#E1E4EA] bg-[#EDEFEB]">
