@@ -19,40 +19,40 @@ export default function Payment() {
     <OnboardingLayout
       progress={100}
       footer={
-        <div className="w-full bg-white rounded-[32px] border border-black/[0.08] p-4 sm:p-6 flex justify-between items-center">
+        <div className="w-full bg-white rounded-[32px] border border-black/[0.08] p-2 sm:p-3 flex justify-between items-center">
           <button
             onClick={handleBack}
-            className="text-lg font-bold text-[#163300] leading-[1.2] font-heading underline hover:opacity-80 transition-opacity"
+            className="text-sm sm:text-base font-bold text-[#163300] leading-[1.2] font-heading underline hover:opacity-80 transition-opacity"
           >
             Go Back
           </button>
           <button
             onClick={handlePayment}
-            className="px-8 py-4 h-14 bg-[#EDEFEB] rounded-full border border-black/[0.08] hover:bg-[#E0E5DC] transition-colors"
+            className="px-6 py-2 h-11 bg-[#EDEFEB] rounded-full border border-black/[0.08] hover:bg-[#E0E5DC] transition-colors"
           >
-            <span className="text-lg font-bold text-[#163300] leading-[1.2] font-heading">
+            <span className="text-sm sm:text-base font-bold text-[#163300] leading-[1.2] font-heading">
               Make Payment
             </span>
           </button>
         </div>
       }
     >
-      <div className="w-full bg-white rounded-[32px] border border-black/[0.08] p-8 sm:p-12 lg:p-16 mb-12">
+      <div className="w-full bg-white rounded-[32px] border border-black/[0.08] p-4 sm:p-6 lg:p-8">
         {/* Header */}
-        <div className="mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-black leading-[1.2] mb-2 font-heading">
+        <div className="mb-6">
+          <h1 className="text-2xl sm:text-3xl font-bold text-black leading-[1.2] mb-1 font-heading">
             Payment Information
           </h1>
-          <p className="text-base sm:text-lg text-[#404040] leading-[1.5] tracking-[-0.36px] font-body">
+          <p className="text-sm sm:text-base text-[#404040] leading-[1.4] tracking-[-0.32px] font-body">
             Join our design bootcamp and watch them thrive
           </p>
         </div>
 
         {/* Divider */}
-        <div className="w-full h-[1px] bg-black/10 mb-12" />
+        <div className="w-full h-[1px] bg-black/10 mb-6" />
 
         {/* Payment Fields */}
-        <div className="space-y-8 mb-12">
+        <div className="space-y-4 mb-4">
           {/* Card Number */}
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-semibold text-black leading-[1.5]">

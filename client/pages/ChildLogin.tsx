@@ -94,22 +94,22 @@ export default function ChildLogin() {
 
         {/* Safety First Alert */}
         {showAlert && (
-          <div className="flex items-start gap-3 p-4 rounded-xl border border-black/[0.08] bg-[#F6FDF2] relative">
-            <AlertCircle className="w-5 h-5 text-[#163300] flex-shrink-0 mt-0.5" strokeWidth={1.67} />
-            <div className="flex-1">
-              <h3 className="text-lg font-bold text-[#163300] leading-[1.5] mb-1">
+          <div className="flex items-start gap-2 p-3 rounded-lg border border-black/[0.08] bg-[#F6FDF2] relative">
+            <AlertCircle className="w-4 h-4 text-[#163300] flex-shrink-0 mt-0.5" strokeWidth={1.67} />
+            <div className="flex-1 min-w-0">
+              <h3 className="text-sm font-bold text-[#163300] leading-[1.3] mb-0.5">
                 Safety First
               </h3>
-              <p className="text-base text-[#163300] leading-[1.5] tracking-[-0.32px] font-body">
+              <p className="text-xs text-[#163300] leading-[1.3] tracking-[-0.32px] font-body">
                 We maintain a secure, monitored learning environment with verified instructors and age-appropriate content.
               </p>
             </div>
             <button
               onClick={() => setShowAlert(false)}
-              className="flex items-center justify-center w-9 h-9 rounded-lg hover:bg-black/5 transition-colors flex-shrink-0 -mt-2 -mr-2"
+              className="flex items-center justify-center w-6 h-6 rounded-lg hover:bg-black/5 transition-colors flex-shrink-0 -mt-1 -mr-1"
               aria-label="Close alert"
             >
-              <X className="w-5 h-5 text-[#163300]" strokeWidth={1.67} />
+              <X className="w-4 h-4 text-[#163300]" strokeWidth={1.67} />
             </button>
           </div>
         )}
