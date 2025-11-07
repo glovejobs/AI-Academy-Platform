@@ -32,12 +32,12 @@ export function OnboardingLayout({
   const contentWidthClass = contentMaxWidthClassName ?? "max-w-[864px]";
 
   return (
-    <div className={`min-h-screen flex flex-col ${backgroundClassName ?? "bg-[#FAFAFA]"}`}>
-      <header className="sticky top-0 z-40 border-b border-black/[0.05] bg-[#FAFAFA]/95 backdrop-blur-md">
-        <div className={`mx-auto w-full ${headerWidthClass} px-4 sm:px-6 py-4`}>
+    <div className={`h-screen flex flex-col overflow-hidden ${backgroundClassName ?? "bg-[#FAFAFA]"}`}>
+      <header className="max-h-[100px] flex-shrink-0 border-b border-black/[0.05] bg-[#FAFAFA]/95 backdrop-blur-md overflow-hidden">
+        <div className={`mx-auto w-full ${headerWidthClass} px-4 sm:px-6 py-3`}>
           <img src={LOGO_SRC} alt="Logo" className="w-9 h-9" />
         </div>
-        <div className={`mx-auto w-full ${headerWidthClass} px-4 sm:px-6 pb-4`}>
+        <div className={`mx-auto w-full ${headerWidthClass} px-4 sm:px-6 pb-3`}>
           <div className="flex items-center gap-3">
             <div className="relative h-2 flex-1 rounded-lg bg-[#EAECF0] overflow-hidden">
               <div
@@ -45,28 +45,25 @@ export function OnboardingLayout({
                 style={{ width: `${fillPercentage}%` }}
               />
             </div>
-            <span className="text-sm text-black font-normal tracking-tight">
+            <span className="text-sm text-black font-normal tracking-tight whitespace-nowrap">
               {progressLabel ?? `${Math.round(normalizedProgress)}%`}
             </span>
           </div>
         </div>
       </header>
 
-      <main
-        className="flex-1 px-4 sm:px-6"
-        style={{ paddingBottom: "calc(160px + env(safe-area-inset-bottom, 0px))" }}
-      >
-        <div className={`mx-auto w-full ${contentWidthClass} py-8 sm:py-12 lg:py-16`}>
+      <main className="flex-1 px-4 sm:px-6 overflow-hidden flex flex-col">
+        <div className={`mx-auto w-full ${contentWidthClass} py-6 sm:py-8 flex flex-col justify-center`}>
           {children}
         </div>
       </main>
 
-      <footer className="fixed bottom-0 left-0 right-0 z-40 border-t border-black/[0.05] bg-[#FAFAFA]/95 backdrop-blur-md">
+      <footer className="max-h-[100px] flex-shrink-0 border-t border-black/[0.05] bg-[#FAFAFA]/95 backdrop-blur-md overflow-hidden">
         <div
-          className="px-4 sm:px-6"
+          className="px-4 sm:px-6 h-full flex items-center"
           style={{
-            paddingTop: "16px",
-            paddingBottom: "calc(16px + env(safe-area-inset-bottom, 0px))",
+            paddingTop: "12px",
+            paddingBottom: "calc(12px + env(safe-area-inset-bottom, 0px))",
           }}
         >
           <div className={`mx-auto w-full ${contentWidthClass}`}>{footer}</div>
