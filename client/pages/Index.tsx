@@ -46,62 +46,62 @@ export default function Index() {
         {/* Form Fields */}
         <div className="space-y-4 mb-4">
           {/* Full Name */}
-          <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-semibold text-[#21231D] leading-[1.5] tracking-[-0.28px]">
+          <div className="flex flex-col gap-1">
+            <label className="text-xs sm:text-sm font-semibold text-[#21231D] leading-[1.3] tracking-[-0.28px]">
               Full Name
             </label>
-            <div className="flex items-center gap-2 px-4 py-4 h-[53px] rounded-full border border-black/[0.08] bg-[#FAFAFA]">
+            <div className="flex items-center gap-2 px-3 py-2.5 h-10 rounded-full border border-black/[0.08] bg-[#FAFAFA]">
               <input
                 type="text"
                 placeholder="e.g, john doe"
-                className="flex-1 bg-transparent outline-none text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] leading-6 tracking-[-0.16px]"
+                className="flex-1 bg-transparent outline-none text-sm text-[#B3B3B3] placeholder:text-[#B3B3B3] leading-5 tracking-[-0.16px]"
               />
             </div>
           </div>
 
           {/* Email */}
-          <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-semibold text-[#21231D] leading-[1.5] tracking-[-0.28px]">
+          <div className="flex flex-col gap-1">
+            <label className="text-xs sm:text-sm font-semibold text-[#21231D] leading-[1.3] tracking-[-0.28px]">
               Email
             </label>
-            <div className="flex items-center gap-2 px-4 py-4 h-[53px] rounded-full border border-black/[0.08] bg-[#FAFAFA]">
+            <div className="flex items-center gap-2 px-3 py-2.5 h-10 rounded-full border border-black/[0.08] bg-[#FAFAFA]">
               <input
                 type="email"
                 placeholder="name@exmaple.com"
-                className="flex-1 bg-transparent outline-none text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] leading-6 tracking-[-0.16px]"
+                className="flex-1 bg-transparent outline-none text-sm text-[#B3B3B3] placeholder:text-[#B3B3B3] leading-5 tracking-[-0.16px]"
               />
             </div>
           </div>
 
           {/* Phone Number */}
-          <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-semibold text-black leading-[1.5] tracking-[-0.28px]">
+          <div className="flex flex-col gap-1">
+            <label className="text-xs sm:text-sm font-semibold text-black leading-[1.3] tracking-[-0.28px]">
               Phone Number
             </label>
-            <div className="flex items-center gap-2 px-4 py-4 h-[53px] rounded-full border border-black/[0.08] bg-[#FAFAFA]">
-              <img 
-                src="https://api.builder.io/api/v1/image/assets/TEMP/6c270b03fdf4c426d84d7f861b008439be573134?width=42" 
-                alt="Flag" 
-                className="w-[21px] h-[21px] rounded-full"
+            <div className="flex items-center gap-2 px-3 py-2.5 h-10 rounded-full border border-black/[0.08] bg-[#FAFAFA]">
+              <img
+                src="https://api.builder.io/api/v1/image/assets/TEMP/6c270b03fdf4c426d84d7f861b008439be573134?width=42"
+                alt="Flag"
+                className="w-4 h-4 rounded-full"
               />
               <input
                 type="tel"
                 placeholder="(555) 555-5555"
-                className="flex-1 bg-transparent outline-none text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] leading-6 tracking-[-0.16px]"
+                className="flex-1 bg-transparent outline-none text-sm text-[#B3B3B3] placeholder:text-[#B3B3B3] leading-5 tracking-[-0.16px]"
               />
             </div>
           </div>
 
           {/* Password */}
-          <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-semibold text-black leading-[1.5] tracking-[-0.28px]">
+          <div className="flex flex-col gap-1">
+            <label className="text-xs sm:text-sm font-semibold text-black leading-[1.3] tracking-[-0.28px]">
               Password
             </label>
-            <div className="flex items-center gap-2 px-4 py-4 h-[53px] rounded-full border border-black/[0.08] bg-[#FAFAFA]">
+            <div className="flex items-center gap-2 px-3 py-2.5 h-10 rounded-full border border-black/[0.08] bg-[#FAFAFA]">
               <input
                 type="password"
                 placeholder="Enter your password"
-                className="flex-1 bg-transparent outline-none text-base text-[#B3B3B3] placeholder:text-[#B3B3B3] leading-6 tracking-[-0.16px]"
+                className="flex-1 bg-transparent outline-none text-sm text-[#B3B3B3] placeholder:text-[#B3B3B3] leading-5 tracking-[-0.16px]"
               />
               <EyeOff className="w-4 h-4 text-black flex-shrink-0" />
             </div>
@@ -110,22 +110,22 @@ export default function Index() {
 
         {/* Safety First Alert */}
         {showAlert && (
-          <div className="flex items-start gap-3 p-4 rounded-xl border border-black/[0.08] bg-[#F6FDF2] relative">
-            <AlertCircle className="w-5 h-5 text-[#163300] flex-shrink-0 mt-0.5" strokeWidth={1.67} />
-            <div className="flex-1">
-              <h3 className="text-lg font-bold text-[#163300] leading-[1.5] mb-1">
+          <div className="flex items-start gap-2 p-3 rounded-lg border border-black/[0.08] bg-[#F6FDF2] relative">
+            <AlertCircle className="w-4 h-4 text-[#163300] flex-shrink-0 mt-0.5" strokeWidth={1.67} />
+            <div className="flex-1 min-w-0">
+              <h3 className="text-sm font-bold text-[#163300] leading-[1.3] mb-0.5">
                 Safety First
               </h3>
-              <p className="text-base text-[#163300] leading-[1.5] tracking-[-0.32px] font-body">
+              <p className="text-xs text-[#163300] leading-[1.3] tracking-[-0.32px] font-body">
                 We maintain a secure, monitored learning environment with verified instructors and age-appropriate content.
               </p>
             </div>
             <button
               onClick={() => setShowAlert(false)}
-              className="flex items-center justify-center w-9 h-9 rounded-lg hover:bg-black/5 transition-colors flex-shrink-0 -mt-2 -mr-2"
+              className="flex items-center justify-center w-6 h-6 rounded-lg hover:bg-black/5 transition-colors flex-shrink-0 -mt-1 -mr-1"
               aria-label="Close alert"
             >
-              <X className="w-5 h-5 text-[#163300]" strokeWidth={1.67} />
+              <X className="w-4 h-4 text-[#163300]" strokeWidth={1.67} />
             </button>
           </div>
         )}
