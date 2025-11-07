@@ -224,7 +224,7 @@ export default function StudentOnboarding() {
               </div>
             )}
 
-            <div className="flex flex-col px-4 py-2.5 pb-4 gap-2 rounded-b-3xl border border-[#E1E4EA]">
+            <div className="flex flex-col px-3 py-2 pb-3 gap-1.5 rounded-b-3xl border border-[#E1E4EA]\">
               <div className="flex items-start gap-2">
                 <div className="w-px h-4 bg-[#163300]" />
                 <input
