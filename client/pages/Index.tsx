@@ -29,22 +29,22 @@ export default function Index() {
         </div>
       }
     >
-      <div className="w-full bg-white rounded-[32px] border border-black/[0.08] p-8 sm:p-12 lg:p-16 mb-12">
+      <div className="w-full bg-white rounded-[32px] border border-black/[0.08] p-4 sm:p-6 lg:p-8">
         {/* Header */}
-        <div className="mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-black leading-[1.2] mb-2 font-heading">
+        <div className="mb-6">
+          <h1 className="text-2xl sm:text-3xl font-bold text-black leading-[1.2] mb-1 font-heading">
             Create Your Parent Account
           </h1>
-          <p className="text-base sm:text-lg text-[#404040] leading-[1.5] tracking-[-0.36px] font-body">
+          <p className="text-sm sm:text-base text-[#404040] leading-[1.4] tracking-[-0.32px] font-body">
             Start by setting up your account so we can keep you informed every step of the way.
           </p>
         </div>
 
         {/* Divider */}
-        <div className="w-full h-[1px] bg-black/10 mb-12" />
+        <div className="w-full h-[1px] bg-black/10 mb-6" />
 
         {/* Form Fields */}
-        <div className="space-y-6 mb-12">
+        <div className="space-y-4 mb-4">
           {/* Full Name */}
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-semibold text-[#21231D] leading-[1.5] tracking-[-0.28px]">
