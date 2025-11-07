@@ -49,32 +49,32 @@ export default function Pricing() {
       <div className="w-full grid md:grid-cols-2 gap-4 mb-4 px-0 md:px-4">
         {/* 2 Months Plan */}
         <div className="flex flex-col rounded-[32px] border border-black/[0.08] bg-[#FAFAFA] overflow-hidden">
-          <div className="p-8 border-b border-[#EAECF0]">
-            <p className="text-lg text-[#404040] leading-[1.5] tracking-[-0.36px] mb-4 font-body">
+          <div className="p-4 border-b border-[#EAECF0]">
+            <p className="text-sm text-[#404040] leading-[1.3] tracking-[-0.32px] mb-2 font-body">
               2 Months Cohort
             </p>
-            <div className="flex items-end gap-1 mb-4">
-              <span className="text-6xl font-bold text-[#101828] leading-[1.2] tracking-[-1.2px] font-heading">
+            <div className="flex items-end gap-1 mb-2">
+              <span className="text-4xl sm:text-5xl font-bold text-[#101828] leading-[1.2] tracking-[-1.2px] font-heading">
                 $299
               </span>
-              <span className="text-base font-bold text-[#404040] leading-[1.5] tracking-[-0.32px] pb-2">
+              <span className="text-sm font-bold text-[#404040] leading-[1.3] tracking-[-0.32px] pb-1">
                 Total
               </span>
             </div>
-            <p className="text-base text-[#404040] leading-[1.5] tracking-[-0.32px] mb-8 font-body">
+            <p className="text-xs sm:text-sm text-[#404040] leading-[1.3] tracking-[-0.32px] mb-3 font-body">
               8-week real-world AI experience for creative students.
             </p>
             <button
               onClick={() => handleSelectPlan("2-month")}
-              className="w-full px-8 py-4 h-14 bg-[#9FE870] rounded-full hover:bg-[#8FD860] transition-colors"
+              className="w-full px-6 py-2 h-10 bg-[#9FE870] rounded-full hover:bg-[#8FD860] transition-colors"
             >
-              <span className="text-lg font-bold text-[#163300] leading-[1.2] font-heading">
+              <span className="text-sm font-bold text-[#163300] leading-[1.2] font-heading">
                 Select Plan
               </span>
             </button>
           </div>
-          
-          <div className="p-8 space-y-4">
+
+          <div className="p-4 space-y-2">
             <CheckItem text="Work in real-world teams — like a full-time creative intern." />
             <div className="space-y-3">
               <CheckItem text="Learn across 6 creative AI subfields:" />
@@ -97,37 +97,37 @@ export default function Pricing() {
 
         {/* 1 Year Plan - Popular */}
         <div className="flex flex-col rounded-[32px] border-2 border-[#36DD50] bg-white overflow-hidden">
-          <div className="p-8 border-b border-[#EAECF0]">
-            <div className="flex items-center justify-between mb-4">
-              <p className="text-lg text-[#404040] leading-[1.5] tracking-[-0.36px] font-body">
+          <div className="p-4 border-b border-[#EAECF0]">
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-sm text-[#404040] leading-[1.3] tracking-[-0.32px] font-body">
                 1 Year Plan
               </p>
-              <span className="px-3 py-1 rounded-2xl bg-black/[0.08] text-sm font-medium text-[#163300] leading-[1.5] tracking-[-0.28px]">
+              <span className="px-2 py-1 rounded-2xl bg-black/[0.08] text-xs font-medium text-[#163300] leading-[1.3] tracking-[-0.28px]">
                 Popular
               </span>
             </div>
-            <div className="flex items-end gap-1 mb-4">
-              <span className="text-6xl font-bold text-[#101828] leading-[1.2] tracking-[-1.2px] font-heading">
+            <div className="flex items-end gap-1 mb-2">
+              <span className="text-4xl sm:text-5xl font-bold text-[#101828] leading-[1.2] tracking-[-1.2px] font-heading">
                 $999
               </span>
-              <span className="text-base font-bold text-[#404040] leading-[1.5] tracking-[-0.32px] pb-2">
+              <span className="text-sm font-bold text-[#404040] leading-[1.3] tracking-[-0.32px] pb-1">
                 per Year
               </span>
             </div>
-            <p className="text-base text-[#404040] leading-[1.5] tracking-[-0.32px] mb-8 font-body">
+            <p className="text-xs sm:text-sm text-[#404040] leading-[1.3] tracking-[-0.32px] mb-3 font-body">
               Basic features for up to 10 users.
             </p>
             <button
               onClick={() => handleSelectPlan("1-year")}
-              className="w-full px-8 py-4 h-14 bg-[#9FE870] rounded-full hover:bg-[#8FD860] transition-colors"
+              className="w-full px-6 py-2 h-10 bg-[#9FE870] rounded-full hover:bg-[#8FD860] transition-colors"
             >
-              <span className="text-lg font-bold text-[#163300] leading-[1.2] font-heading">
+              <span className="text-sm font-bold text-[#163300] leading-[1.2] font-heading">
                 Select Plan
               </span>
             </button>
           </div>
-          
-          <div className="p-8 space-y-4">
+
+          <div className="p-4 space-y-2">
             <CheckItem text="Access to 6 bootcamp sessions per year (choose new tracks)" />
             <div className="space-y-3">
               <CheckItem text="Learn across 6 creative AI subfields:" />
