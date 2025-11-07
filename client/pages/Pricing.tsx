@@ -23,30 +23,30 @@ export default function Pricing() {
       headerMaxWidthClassName="max-w-[1280px]"
       contentMaxWidthClassName="max-w-[1280px]"
       footer={
-        <div className="w-full bg-white rounded-[32px] border border-black/[0.08] p-4 sm:p-6 flex justify-start">
+        <div className="w-full bg-white rounded-[32px] border border-black/[0.08] p-2 sm:p-3 flex justify-start">
           <button
             onClick={handleBack}
-            className="text-lg font-bold text-[#163300] leading-[1.2] font-heading underline hover:opacity-80 transition-opacity"
+            className="text-sm sm:text-base font-bold text-[#163300] leading-[1.2] font-heading underline hover:opacity-80 transition-opacity"
           >
             Go Back
           </button>
         </div>
       }
     >
-      <div className="w-full max-w-[960px] mx-auto text-center mb-16">
-        <p className="text-base text-[#163300] leading-[1.5] tracking-[-0.32px] mb-3 font-medium">
+      <div className="w-full max-w-[960px] mx-auto text-center mb-4">
+        <p className="text-xs sm:text-sm text-[#163300] leading-[1.3] tracking-[-0.32px] mb-1 font-medium">
           Pricing
         </p>
-        <h1 className="text-4xl sm:text-5xl font-bold text-[#101828] leading-[1.25] tracking-[-0.96px] mb-6 font-heading">
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#101828] leading-[1.2] tracking-[-0.75px] mb-2 font-heading">
           Simple, Transparent Pricing
         </h1>
-        <p className="text-xl text-[#8C8C8C] leading-[1.5] font-semibold">
+        <p className="text-sm sm:text-base text-[#8C8C8C] leading-[1.4] font-semibold">
           Invest in your child's future with flexible payment options
         </p>
       </div>
 
       {/* Pricing Cards */}
-      <div className="w-full grid md:grid-cols-2 gap-8 mb-12 px-0 md:px-4">
+      <div className="w-full grid md:grid-cols-2 gap-4 mb-4 px-0 md:px-4">
         {/* 2 Months Plan */}
         <div className="flex flex-col rounded-[32px] border border-black/[0.08] bg-[#FAFAFA] overflow-hidden">
           <div className="p-8 border-b border-[#EAECF0]">
