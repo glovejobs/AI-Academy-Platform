@@ -1,10 +1,26 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Plus, ChevronLeft, ChevronRight, Home, Users, BookOpen, Heart, Wand2, BarChart3, Settings } from "lucide-react";
 import AddProgramModal from "@/components/AddProgramModal";
 
 export default function AdminPrograms() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+
+  const navItems = [
+    { id: "dashboard", label: "Dashboard", path: "/admin-dashboard", icon: Home },
+    { id: "students", label: "Students", path: "/admin-students", icon: Users },
+    { id: "mentors", label: "Mentors", path: "/admin-mentors", icon: Users },
+    { id: "parents", label: "Parents", path: "/admin-parents", icon: Heart },
+    { id: "programs", label: "Programs", path: "/admin-programs", icon: BookOpen },
+    { id: "ai-logs", label: "Ai System Logs", path: "/admin-ai-logs", icon: Wand2 },
+    { id: "reports", label: "Reports", path: "/admin-reports", icon: BarChart3 },
+    { id: "settings", label: "Settings", path: "/admin-settings", icon: Settings },
+  ];
+
+  const isActive = (itemPath: string) => location.pathname === itemPath;
 
   const programs = [
     { id: 1, title: "AI Explorers Spring '24", duration: "8 Weeks", status: "Active", startDate: "Mar 1, 2025", endDate: "Jan 15, 2025", enrolled: "32/40" },
@@ -26,44 +42,37 @@ export default function AdminPrograms() {
         />
         
         <div className="flex justify-center items-start gap-6">
-          <div className="flex h-12 px-1 items-center gap-1 rounded-full">
-            <Home className="w-[18px] h-[18px] text-[#CFD6C9]" />
-            <span className="text-[#CFD6C9] font-satoshi text-sm font-medium leading-6 tracking-[-0.14px]">Dashboard</span>
-          </div>
-          <div className="flex h-12 px-1 items-center gap-1 rounded-full">
-            <Users className="w-[18px] h-[18px] text-[#CFD6C9]" />
-            <span className="text-[#CFD6C9] font-satoshi text-sm font-medium leading-6 tracking-[-0.14px]">Students</span>
-          </div>
-          <div className="flex h-12 px-1 items-center gap-1 rounded-full">
-            <svg className="w-[18px] h-[18px]" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M11.6925 13.3056C11.2209 13.6215 9.98447 14.2666 10.7375 15.0737C11.1054 15.468 11.5152 15.75 12.0303 15.75H13.5H14.9697C15.4848 15.75 15.8946 15.468 16.2625 15.0737C17.0156 14.2666 15.7791 13.6215 15.3075 13.3056C14.2016 12.5648 12.7984 12.5648 11.6925 13.3056Z" stroke="#CFD6C9" strokeWidth="1.125"/>
-              <path d="M15 9.375C15 10.2034 14.3284 10.875 13.5 10.875C12.6716 10.875 12 10.2034 12 9.375C12 8.54655 12.6716 7.875 13.5 7.875C14.3284 7.875 15 8.54655 15 9.375Z" stroke="#CFD6C9" strokeWidth="1.125"/>
-              <path d="M7.5 4.5H11.25M7.5 2.25H13.5" stroke="#CFD6C9" strokeWidth="1.125" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M5.25 7.125V10.5C5.25 11.2071 5.25 11.5607 5.03033 11.7804C4.81066 12 4.45711 12 3.75 12H3C2.29289 12 1.93934 12 1.71967 11.7804C1.5 11.5607 1.5 11.2071 1.5 10.5V8.62503C1.5 7.91793 1.5 7.56438 1.71967 7.34467C1.93934 7.125 2.29289 7.125 3 7.125H5.25ZM5.25 7.125H9" stroke="#CFD6C9" strokeWidth="1.125" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M4.875 3.75C4.875 4.57843 4.20343 5.25 3.375 5.25C2.54657 5.25 1.875 4.57843 1.875 3.75C1.875 2.92157 2.54657 2.25 3.375 2.25C4.20343 2.25 4.875 2.92157 4.875 3.75Z" stroke="#CFD6C9" strokeWidth="1.125"/>
-            </svg>
-            <span className="text-[#CFD6C9] font-satoshi text-sm font-medium leading-6 tracking-[-0.14px]">Mentors</span>
-          </div>
-          <div className="flex h-12 px-1 items-center gap-1 rounded-full">
-            <Heart className="w-[18px] h-[18px] text-[#CFD6C9]" />
-            <span className="text-[#CFD6C9] font-satoshi text-sm font-medium leading-6 tracking-[-0.14px]">Parents</span>
-          </div>
-          <div className="flex h-12 px-4 items-center gap-1 rounded-full bg-[rgba(159,232,112,0.2)]">
-            <BookOpen className="w-[18px] h-[18px] text-[#B1FA63]" />
-            <span className="text-[#B1FA63] font-satoshi text-sm font-medium leading-6 tracking-[-0.14px]">Programs</span>
-          </div>
-          <div className="flex h-12 px-1 items-center gap-1 rounded-full">
-            <Wand2 className="w-[18px] h-[18px] text-[#CFD6C9]" />
-            <span className="text-[#CFD6C9] font-satoshi text-sm font-medium leading-6 tracking-[-0.14px]">Ai System Logs</span>
-          </div>
-          <div className="flex h-12 px-1 items-center gap-1 rounded-full">
-            <BarChart3 className="w-[18px] h-[18px] text-[#CFD6C9]" />
-            <span className="text-[#CFD6C9] font-satoshi text-sm font-bold leading-6 tracking-[-0.14px]">Reports</span>
-          </div>
-          <div className="flex h-12 px-1 items-center gap-1 rounded-full">
-            <Settings className="w-[18px] h-[18px] text-[#CFD6C9]" />
-            <span className="text-[#CFD6C9] font-satoshi text-sm font-bold leading-6 tracking-[-0.14px]">Settings</span>
-          </div>
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const active = isActive(item.path);
+
+            return (
+              <button
+                key={item.id}
+                onClick={() => navigate(item.path)}
+                className={`flex h-12 px-4 items-center gap-1 rounded-full transition-all ${
+                  active
+                    ? "bg-[rgba(159,232,112,0.2)]"
+                    : ""
+                }`}
+              >
+                <Icon
+                  className="w-[18px] h-[18px]"
+                  strokeWidth={1.25}
+                  color={active ? "#B1FA63" : "#CFD6C9"}
+                />
+                <span
+                  className={`text-sm leading-6 tracking-[-0.14px] font-satoshi ${
+                    active
+                      ? "font-bold text-[#B1FA63]"
+                      : "font-medium text-[#CFD6C9]"
+                  }`}
+                >
+                  {item.label}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         <div className="flex items-center gap-3">
