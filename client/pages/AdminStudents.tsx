@@ -27,7 +27,7 @@ export default function AdminStudents() {
 
   const navItems = [
     { id: "dashboard", label: "Dashboard", path: "/admin-dashboard", icon: Home },
-    { id: "students", label: "Students", path: "/admin-students", icon: Users, active: true },
+    { id: "students", label: "Students", path: "/admin-students", icon: Users },
     { id: "mentors", label: "Mentors", path: "/admin-mentors", icon: Users },
     { id: "parents", label: "Parents", path: "/admin-parents", icon: Heart },
     { id: "programs", label: "Programs", path: "/admin-programs", icon: BookOpen },
@@ -92,7 +92,7 @@ export default function AdminStudents() {
           <div className="flex justify-center items-start gap-6">
             {navItems.map((item) => {
               const Icon = item.icon;
-              const isActive = item.active || location.pathname === item.path;
+              const isActive = location.pathname === item.path;
               
               return (
                 <div
