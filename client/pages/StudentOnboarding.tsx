@@ -101,11 +101,11 @@ export default function StudentOnboarding() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1E3006] flex flex-col items-center p-3 gap-6">
+    <div className="h-screen bg-[#1E3006] flex flex-col items-center p-2 sm:p-3 gap-3 overflow-hidden">
       {/* Chat Container */}
-      <div className="flex flex-col flex-1 w-full max-w-[1376px] h-screen max-h-[calc(100vh-2rem)] rounded-3xl bg-white shadow-sm overflow-hidden">
+      <div className="flex flex-col flex-1 w-full max-w-[1376px] rounded-3xl bg-white shadow-sm overflow-hidden">
         {/* Stepper - Now inside white container */}
-        <div className="flex items-start gap-2 justify-center px-4 sm:px-8 pt-4 sm:pt-6 pb-0 flex-shrink-0">
+        <div className="flex items-start gap-1.5 justify-center px-3 sm:px-6 pt-3 sm:pt-4 pb-0 flex-shrink-0">
           {steps.map((step, index) => (
             <div key={step.number} className="flex items-center gap-2">
               <div
