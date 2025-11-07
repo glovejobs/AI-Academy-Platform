@@ -120,15 +120,15 @@ export default function Complete() {
       <div className="w-full max-w-[864px] bg-white rounded-[32px] border border-black/[0.08] p-4 flex justify-between items-center">
         <button
           onClick={handleBack}
-          className="text-lg font-bold text-[#163300] leading-[1.2] font-heading underline hover:opacity-80 transition-opacity"
+          className="text-sm sm:text-base font-bold text-[#163300] leading-[1.2] font-heading underline hover:opacity-80 transition-opacity"
         >
           Go Back
         </button>
         <button
           onClick={handleDashboard}
-          className="px-8 py-4 h-14 bg-[#9FE870] rounded-full hover:bg-[#8FD860] transition-colors"
+          className="px-6 py-2 h-11 bg-[#9FE870] rounded-full hover:bg-[#8FD860] transition-colors"
         >
-          <span className="text-lg font-bold text-[#163300] leading-[1.2] font-heading">
+          <span className="text-sm sm:text-base font-bold text-[#163300] leading-[1.2] font-heading">
             Go to Dashboard
           </span>
         </button>
