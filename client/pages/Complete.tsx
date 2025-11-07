@@ -26,55 +26,55 @@ export default function Complete() {
       </div>
 
       {/* Main Completion Card */}
-      <div className="w-full max-w-[864px] bg-white rounded-[32px] border border-black/[0.08] p-8 sm:p-12 lg:p-16 mb-8">
-        <div className="text-center mb-6">
-          <h1 className="text-3xl sm:text-4xl font-bold text-[#121511] leading-[1.2] mb-4 font-heading">
+      <div className="w-full max-w-[864px] bg-white rounded-[32px] border border-black/[0.08] p-4 sm:p-6 lg:p-8 mb-4">
+        <div className="text-center mb-3">
+          <h1 className="text-2xl sm:text-3xl font-bold text-[#121511] leading-[1.2] mb-1 font-heading">
             Enrollment Complete! 🎉
           </h1>
-          <p className="text-xl text-[#7B7B7B] leading-[1.5] tracking-[-0.4px] opacity-80 font-body max-w-md mx-auto">
+          <p className="text-sm sm:text-base text-[#7B7B7B] leading-[1.4] tracking-[-0.32px] opacity-80 font-body max-w-md mx-auto">
             ALEX is all set to begin their design journey
           </p>
         </div>
 
         {/* Enrollment Summary */}
-        <div className="w-full max-w-[564px] mx-auto p-6 rounded-[32px] bg-[#F7F7F7] space-y-4 mb-6">
-          <h2 className="text-lg font-bold text-[#121511] leading-[1.5] mb-4 font-heading">
+        <div className="w-full max-w-[564px] mx-auto p-4 rounded-[32px] bg-[#F7F7F7] space-y-2 mb-3">
+          <h2 className="text-sm sm:text-base font-bold text-[#121511] leading-[1.3] mb-2 font-heading">
             Enrollment Summary
           </h2>
-          
-          <div className="p-6 rounded-3xl border border-black/[0.08] bg-white space-y-3">
+
+          <div className="p-4 rounded-3xl border border-black/[0.08] bg-white space-y-2">
             <div className="flex justify-between items-center">
-              <span className="text-sm text-[#404040] leading-[1.5] tracking-[-0.42px] font-body">
+              <span className="text-xs sm:text-sm text-[#404040] leading-[1.3] tracking-[-0.32px] font-body">
                 Student Name
               </span>
-              <span className="text-sm font-bold text-black leading-[1.5] font-heading">
+              <span className="text-xs sm:text-sm font-bold text-black leading-[1.3] font-heading">
                 ALEX
               </span>
             </div>
             
             <div className="flex justify-between items-center">
-              <span className="text-sm text-[#404040] leading-[1.5] tracking-[-0.42px] font-body">
+              <span className="text-xs sm:text-sm text-[#404040] leading-[1.3] tracking-[-0.32px] font-body">
                 Grade Level
               </span>
-              <span className="text-sm font-bold text-black leading-[1.5] font-heading">
+              <span className="text-xs sm:text-sm font-bold text-black leading-[1.3] font-heading">
                 10th Grade
               </span>
             </div>
-            
+
             <div className="flex justify-between items-center">
-              <span className="text-sm text-[#404040] leading-[1.5] tracking-[-0.42px] font-body">
+              <span className="text-xs sm:text-sm text-[#404040] leading-[1.3] tracking-[-0.32px] font-body">
                 User Name
               </span>
-              <span className="text-sm font-bold text-black leading-[1.5] font-heading">
+              <span className="text-xs sm:text-sm font-bold text-black leading-[1.3] font-heading">
                 Alex_d
               </span>
             </div>
-            
+
             <div className="flex justify-between items-center">
-              <span className="text-sm text-[#404040] leading-[1.5] tracking-[-0.42px] font-body">
+              <span className="text-xs sm:text-sm text-[#404040] leading-[1.3] tracking-[-0.32px] font-body">
                 Subscription
               </span>
-              <span className="text-sm font-bold text-black leading-[1.5] font-heading">
+              <span className="text-xs sm:text-sm font-bold text-black leading-[1.3] font-heading">
                 2-Month
               </span>
             </div>
