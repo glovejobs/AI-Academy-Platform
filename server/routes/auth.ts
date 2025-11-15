@@ -132,10 +132,15 @@ router.post('/register', async (req: Request, res: Response) => {
         parentId = parent?.id;
       }
 
+      // Convert dateOfBirth to YYYY-MM-DD string format
+      const dobString = typeof dateOfBirth === 'string'
+        ? dateOfBirth
+        : new Date(dateOfBirth).toISOString().split('T')[0];
+
       await db.insert(studentProfiles).values({
         userId: newUser.id,
         parentId,
-        dateOfBirth: dateOfBirth, // Pass as string, postgres driver will convert
+        dateOfBirth: dobString,
         totalPoints: 0,
         level: 1,
         experiencePoints: 0,
