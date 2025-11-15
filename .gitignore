@@ -24,4 +24,21 @@ dist-ssr
 *.sw?
 
 .config/
-!.env
+
+# Environment variables (IMPORTANT: Don't commit sensitive data!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Drizzle migrations
+server/db/migrations/
+
+# Supabase
+.supabase/
