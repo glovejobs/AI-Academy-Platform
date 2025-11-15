@@ -5,7 +5,7 @@ import path from "path";
 export default defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, "server/node-build.ts"),
+      entry: path.resolve(__dirname, "server/main.ts"),
       name: "server",
       fileName: "node-build",
       formats: ["es"],
@@ -15,23 +15,10 @@ export default defineConfig({
     ssr: true,
     rollupOptions: {
       external: [
-        // Node.js built-ins
-        "fs",
-        "path",
-        "url",
-        "http",
-        "https",
-        "os",
-        "crypto",
-        "stream",
-        "util",
-        "events",
-        "buffer",
-        "querystring",
-        "child_process",
-        // External dependencies that should not be bundled
-        "express",
-        "cors",
+        /^node:/,  // Node.js built-ins with node: prefix
+        'fs', 'path', 'url', 'http', 'https', 'os', 'crypto',
+        'stream', 'util', 'events', 'buffer', 'querystring', 'child_process',
+        'net', 'tls', 'zlib', 'assert', 'dns'
       ],
       output: {
         format: "es",
